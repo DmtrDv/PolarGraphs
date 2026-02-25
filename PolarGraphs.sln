@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35825.156 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PolarGraphsWinForms", "PolarGraphsWinForms\PolarGraphsWinForms.csproj", "{39B7A516-2D43-4093-BB12-D56330F55795}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PolarGraphsLib", "PolarGraphsLib\PolarGraphsLib.csproj", "{673DBC28-FEED-44E0-B0F7-9782A205AFC9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{39B7A516-2D43-4093-BB12-D56330F55795}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39B7A516-2D43-4093-BB12-D56330F55795}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39B7A516-2D43-4093-BB12-D56330F55795}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39B7A516-2D43-4093-BB12-D56330F55795}.Release|Any CPU.Build.0 = Release|Any CPU
+		{673DBC28-FEED-44E0-B0F7-9782A205AFC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{673DBC28-FEED-44E0-B0F7-9782A205AFC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{673DBC28-FEED-44E0-B0F7-9782A205AFC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{673DBC28-FEED-44E0-B0F7-9782A205AFC9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3F63EFF3-AB0D-4E06-9D49-6CEA2042BE65}
+	EndGlobalSection
+EndGlobal
