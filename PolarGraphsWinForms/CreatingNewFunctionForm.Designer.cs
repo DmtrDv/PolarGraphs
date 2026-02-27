@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.сartesianGraph_chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.parameters_groupBox = new System.Windows.Forms.GroupBox();
             this.step_numericUpDown = new System.Windows.Forms.NumericUpDown();
@@ -62,16 +62,16 @@
             this.сartesianGraph_chart.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea3.Name = "ChartArea1";
-            this.сartesianGraph_chart.ChartAreas.Add(chartArea3);
+            chartArea1.Name = "ChartArea1";
+            this.сartesianGraph_chart.ChartAreas.Add(chartArea1);
             this.сartesianGraph_chart.Location = new System.Drawing.Point(8, 6);
             this.сartesianGraph_chart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.сartesianGraph_chart.Name = "сartesianGraph_chart";
             this.сartesianGraph_chart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Berry;
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series3.Name = "Series1";
-            this.сartesianGraph_chart.Series.Add(series3);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series1.Name = "Series1";
+            this.сartesianGraph_chart.Series.Add(series1);
             this.сartesianGraph_chart.Size = new System.Drawing.Size(790, 750);
             this.сartesianGraph_chart.TabIndex = 10;
             this.сartesianGraph_chart.Text = "chart1";
@@ -237,13 +237,14 @@
             this.addons_button.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.addons_button.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.addons_button.Location = new System.Drawing.Point(6, 704);
+            this.addons_button.Location = new System.Drawing.Point(6, 674);
             this.addons_button.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.addons_button.Name = "addons_button";
             this.addons_button.Size = new System.Drawing.Size(181, 50);
             this.addons_button.TabIndex = 23;
             this.addons_button.Text = "Надстройки";
             this.addons_button.UseVisualStyleBackColor = true;
+            this.addons_button.Click += new System.EventHandler(this.addons_button_Click);
             // 
             // splitContainer1
             // 
