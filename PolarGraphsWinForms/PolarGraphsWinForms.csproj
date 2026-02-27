@@ -114,5 +114,11 @@
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PolarGraphsLib\PolarGraphsLib.csproj">
+      <Project>{673dbc28-feed-44e0-b0f7-9782a205afc9}</Project>
+      <Name>PolarGraphsLib</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

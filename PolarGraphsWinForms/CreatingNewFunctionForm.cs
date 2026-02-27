@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 using NCalc;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace PolarGraphsWinForms
 {
@@ -21,7 +22,6 @@ namespace PolarGraphsWinForms
         {
             InitializeComponent();
         }
-        public List<Point3D> list = new List<Point3D>();
         
         private void build_button_Click(object sender, EventArgs e)
         {
@@ -32,7 +32,7 @@ namespace PolarGraphsWinForms
             float startConcer = (float)startСorner_numericUpDown.Value;
             float endConcer = (float)endСorner_numericUpDown.Value;
             float step = (float)step_numericUpDown.Value;
-            DataTable dt = new DataTable();
+
             ChartArea polarArea = polarGraph_chart.ChartAreas[0];
             polarArea.AxisX.Minimum = -1.5;
             polarArea.AxisX.Maximum = 1.5;
@@ -43,7 +43,7 @@ namespace PolarGraphsWinForms
             polarArea.AxisX.Interval = 0.5;
             polarArea.AxisY.Interval = 0.5;
 
-            // Настраиваем ДЕКАРТОВ графиг
+            // Настройка декартоволго графика
             ChartArea cartesianArea = сartesianGraph_chart.ChartAreas[0];
             cartesianArea.AxisX.Minimum = -1.5;
             cartesianArea.AxisX.Maximum = 1.5;
@@ -56,17 +56,24 @@ namespace PolarGraphsWinForms
                 double concerRad = concer * Math.PI / 180;
 
 
-                string expression = function
-                     .Replace("sin", "Sin");
-                    // .Replace("fi", concerRad.ToString(System.Globalization.CultureInfo.InvariantCulture));
+                string expression = function.ToLower()
+                     .Replace(" ", "")
+                     .Replace("sin", "Sin")
+                     .Replace("cos", "Cos")
+                     .Replace("tan", "Tan")
+                     .Replace("sqrt", "Sqrt")
+                     .Replace("log", "Log")
+                     .Replace("asin", "Asin")
+                     .Replace("acos", "Acos")
+                     .Replace("atan", "Atan")
+                     ;
+
+                // .Replace("fi", concerRad.ToString(System.Globalization.CultureInfo.InvariantCulture));
                 NCalc.Expression expr = new NCalc.Expression(expression);
                 expr.Parameters["fi"] = concerRad;
 
-               
+                double r = Convert.ToDouble(expr.Evaluate());
 
-                double r = Convert.ToDouble(expr.Evaluate());     
-
-                
                 polarGraph_chart.Series[0].Points.AddXY(concerRad, r);
 
 
