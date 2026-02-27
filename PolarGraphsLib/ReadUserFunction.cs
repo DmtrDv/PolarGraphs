@@ -10,9 +10,10 @@ namespace PolarGraphsLib
 {
     public class ReadUserFunction
     {
-        public string ConvertUserFunction(float startConcer, float endConcer, float step, string userFunction, 
-            List<Points> listPolarPoints, List<Points> listCartesianPoints)
-        {
+            public (List<Points> listPolarPoints, List<Points> listCartesianPoints) ConvertUserFunction(float startConcer, float endConcer, float step, string userFunction)
+            {
+            List<Points> listPolarPoints = new List<Points>();
+            List< Points > listCartesianPoints = new List<Points>();
             for (double concer = startConcer; concer <= endConcer; concer += step)
             {
                 double concerRad = concer * Math.PI / 180;
@@ -42,6 +43,7 @@ namespace PolarGraphsLib
 
                 listCartesianPoints.Add(new Points(x, y));
             }
+            return (listPolarPoints, listCartesianPoints);
         }
     }
 }

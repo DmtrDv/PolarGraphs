@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 using NCalc;
+using PolarGraphsLib;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace PolarGraphsWinForms
@@ -22,7 +23,7 @@ namespace PolarGraphsWinForms
         {
             InitializeComponent();
         }
-        
+        ReadUserFunction readFunction = new ReadUserFunction();
         private void build_button_Click(object sender, EventArgs e)
         {
             polarGraph_chart.Series[0].Points.Clear();
@@ -51,36 +52,16 @@ namespace PolarGraphsWinForms
             cartesianArea.AxisY.Maximum = 1.5;
             cartesianArea.AxisX.Crossing = 0;
             cartesianArea.AxisY.Crossing = 0;
-            for (double concer = startConcer; concer <= endConcer; concer += step)
+
+            var (listPolarPoints, listCartesianPoints) = readFunction.ConvertUserFunction(startConcer, endConcer, step, function);
+           
+            foreach (Points point in listPolarPoints)
             {
-                double concerRad = concer * Math.PI / 180;
-
-
-                string expression = function.ToLower()
-                     .Replace(" ", "")
-                     .Replace("sin", "Sin")
-                     .Replace("cos", "Cos")
-                     .Replace("tan", "Tan")
-                     .Replace("sqrt", "Sqrt")
-                     .Replace("log", "Log")
-                     .Replace("asin", "Asin")
-                     .Replace("acos", "Acos")
-                     .Replace("atan", "Atan")
-                     ;
-
-                // .Replace("fi", concerRad.ToString(System.Globalization.CultureInfo.InvariantCulture));
-                NCalc.Expression expr = new NCalc.Expression(expression);
-                expr.Parameters["fi"] = concerRad;
-
-                double r = Convert.ToDouble(expr.Evaluate());
-
-                polarGraph_chart.Series[0].Points.AddXY(concerRad, r);
-
-
-                double x = r * Math.Cos(concerRad);
-                double y = r * Math.Sin(concerRad);
-
-                сartesianGraph_chart.Series[0].Points.AddXY(x, y);
+                polarGraph_chart.Series[0].Points.AddXY(point.coordinateX, point.coordinateY);
+            }
+            foreach (Points point in listCartesianPoints)
+            {
+                сartesianGraph_chart.Series[0].Points.AddXY(point.coordinateX, point.coordinateY);
             }
         }
     }
