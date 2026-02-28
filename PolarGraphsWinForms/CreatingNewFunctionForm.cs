@@ -33,7 +33,7 @@ namespace PolarGraphsWinForms
         private void build_button_Click(object sender, EventArgs e)
         {
            // polarGraph_chart.Series[0].Points.Clear();
-            сartesianGraph_chart.Series[0].Points.Clear();
+            cartesianGraph_chart.Series[0].Points.Clear();
 
             string function = function_textBox.Text;
             double startConcer = (double)startСorner_numericUpDown.Value;
@@ -51,7 +51,7 @@ namespace PolarGraphsWinForms
             polarArea.AxisY.Interval = 0.5;*/
 
             // Настройка декартоволго графика
-            ChartArea cartesianArea = сartesianGraph_chart.ChartAreas[0];
+            ChartArea cartesianArea = cartesianGraph_chart.ChartAreas[0];
             cartesianArea.AxisX.Minimum = -5;
             cartesianArea.AxisX.Maximum = 5;
             cartesianArea.AxisY.Minimum = -5;
@@ -67,13 +67,13 @@ namespace PolarGraphsWinForms
             }*/
             foreach (Points point in listCartesianPoints)
             {
-                сartesianGraph_chart.Series[0].Points.AddXY(point.coordinateX, point.coordinateY);
+                cartesianGraph_chart.Series[0].Points.AddXY(point.coordinateX, point.coordinateY);
             }
         }
 
         private void addons_button_Click(object sender, EventArgs e)
         {
-            LineSettingsForm lineSettingsForm = new LineSettingsForm();
+            LineSettingsForm lineSettingsForm = new LineSettingsForm(cartesianGraph_chart.Series[0].Color, cartesianGraph_chart.Series[0].BorderWidth);
             if (lineSettingsForm.ShowDialog() == DialogResult.OK)
             {
                 int red = lineSettingsForm.redColor;
@@ -83,8 +83,8 @@ namespace PolarGraphsWinForms
 
                 Color newColor = Color.FromArgb(red, green, blue);
 
-                сartesianGraph_chart.Series[0].Color = newColor;
-                сartesianGraph_chart.Series[0].BorderWidth = thickness;
+                cartesianGraph_chart.Series[0].Color = newColor;
+                cartesianGraph_chart.Series[0].BorderWidth = thickness;
             }
         }
 

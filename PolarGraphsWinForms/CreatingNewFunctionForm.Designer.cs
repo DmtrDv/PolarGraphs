@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CreatingNewFunctionForm));
-            this.сartesianGraph_chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.cartesianGraph_chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.parameters_groupBox = new System.Windows.Forms.GroupBox();
             this.step_numericUpDown = new System.Windows.Forms.NumericUpDown();
             this.endСorner_numericUpDown = new System.Windows.Forms.NumericUpDown();
@@ -47,7 +47,7 @@
             this.build_button = new System.Windows.Forms.Button();
             this.addons_button = new System.Windows.Forms.Button();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            ((System.ComponentModel.ISupportInitialize)(this.сartesianGraph_chart)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cartesianGraph_chart)).BeginInit();
             this.parameters_groupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.step_numericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.endСorner_numericUpDown)).BeginInit();
@@ -58,24 +58,24 @@
             this.splitContainer1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // сartesianGraph_chart
+            // cartesianGraph_chart
             // 
-            this.сartesianGraph_chart.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.cartesianGraph_chart.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea2.Name = "ChartArea1";
-            this.сartesianGraph_chart.ChartAreas.Add(chartArea2);
-            this.сartesianGraph_chart.Location = new System.Drawing.Point(8, 6);
-            this.сartesianGraph_chart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.сartesianGraph_chart.Name = "сartesianGraph_chart";
-            this.сartesianGraph_chart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Berry;
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series2.Name = "Series1";
-            this.сartesianGraph_chart.Series.Add(series2);
-            this.сartesianGraph_chart.Size = new System.Drawing.Size(790, 750);
-            this.сartesianGraph_chart.TabIndex = 10;
-            this.сartesianGraph_chart.Text = "chart1";
+            chartArea1.Name = "ChartArea1";
+            this.cartesianGraph_chart.ChartAreas.Add(chartArea1);
+            this.cartesianGraph_chart.Location = new System.Drawing.Point(8, 6);
+            this.cartesianGraph_chart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cartesianGraph_chart.Name = "cartesianGraph_chart";
+            this.cartesianGraph_chart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Berry;
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            series1.Name = "Series1";
+            this.cartesianGraph_chart.Series.Add(series1);
+            this.cartesianGraph_chart.Size = new System.Drawing.Size(790, 750);
+            this.cartesianGraph_chart.TabIndex = 10;
             // 
             // parameters_groupBox
             // 
@@ -263,7 +263,7 @@
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.сartesianGraph_chart);
+            this.splitContainer1.Panel1.Controls.Add(this.cartesianGraph_chart);
             // 
             // splitContainer1.Panel2
             // 
@@ -287,7 +287,7 @@
             this.Name = "CreatingNewFunctionForm";
             this.Tag = "";
             this.Text = "CreatingNewFunctionForm";
-            ((System.ComponentModel.ISupportInitialize)(this.сartesianGraph_chart)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cartesianGraph_chart)).EndInit();
             this.parameters_groupBox.ResumeLayout(false);
             this.parameters_groupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.step_numericUpDown)).EndInit();
@@ -303,7 +303,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.DataVisualization.Charting.Chart сartesianGraph_chart;
+        private System.Windows.Forms.DataVisualization.Charting.Chart cartesianGraph_chart;
         private System.Windows.Forms.GroupBox parameters_groupBox;
         private System.Windows.Forms.TextBox function_textBox;
         private System.Windows.Forms.Label Input_label;
