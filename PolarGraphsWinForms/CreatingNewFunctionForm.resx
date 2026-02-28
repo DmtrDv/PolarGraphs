@@ -120,6 +120,48 @@
   <metadata name="infoRightInput_toolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <data name="Info_label.ToolTip" xml:space="preserve">
+    <value>Информация:
+	Все числа пишите через точку: 0.5, 1.5, 3.14
+	Функции вводятся в любом регистре.
+
+Доступные функции:
+
+Функция	  Описание	        Пример
+sin()	  Синус			sin(fi), sin(2*fi)
+cos()	  Косинус		cos(fi), cos(3*fi)
+asin()	  Арксинус		asin(0.5)
+acos()	  Арккосинус		acos(0.5)
+sqrt()	  Квадратный корень	sqrt(4)
+pow()	  Возведение в степень	pow(2,3) = 2³
+abs()	  Модуль		abs(-5) = 5
+
+Константы:
+Pi число π
+E  число е
+
+Арифметические операции:
+    + сложение
+    - вычитание
+    * умножение
+    / деление
+    pow() степень
+
+Используйте fi для угла в радианах
+Пример: sin(fi), 2*cos(fi) + sin(2*fi)
+
+НЕЛЬЗЯ:
+Пропускать знак умножения:
+    2sin(fi) → ошибка
+    2*sin(fi) → правильно
+
+Использовать неизвестные функции:
+    sec(fi) → ошибка (нет такой функции)
+
+Неправильные скобки:
+    sin(fi → ошибка
+    sin(fi) → правильно</value>
+  </data>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>25</value>
   </metadata>
