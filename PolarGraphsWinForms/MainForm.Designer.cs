@@ -33,7 +33,7 @@
             this.work_panel = new System.Windows.Forms.Panel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.экспортВToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exportIn_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.настройкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
@@ -86,16 +86,17 @@
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.экспортВToolStripMenuItem});
+            this.exportIn_ToolStripMenuItem});
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(59, 24);
             this.toolStripMenuItem1.Text = "Файл";
             // 
-            // экспортВToolStripMenuItem
+            // exportIn_ToolStripMenuItem
             // 
-            this.экспортВToolStripMenuItem.Name = "экспортВToolStripMenuItem";
-            this.экспортВToolStripMenuItem.Size = new System.Drawing.Size(160, 26);
-            this.экспортВToolStripMenuItem.Text = "Экспорт в";
+            this.exportIn_ToolStripMenuItem.Name = "exportIn_ToolStripMenuItem";
+            this.exportIn_ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.exportIn_ToolStripMenuItem.Text = "Экспорт в";
+            this.exportIn_ToolStripMenuItem.Click += new System.EventHandler(this.exportIn_ToolStripMenuItem_Click);
             // 
             // toolStripMenuItem2
             // 
@@ -137,7 +138,7 @@
         private System.Windows.Forms.Panel work_panel;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem экспортВToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exportIn_ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem настройкиToolStripMenuItem;
     }

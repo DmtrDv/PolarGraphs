@@ -25,6 +25,10 @@ namespace PolarGraphsWinForms
         //конопля  (1 + sin(9*fi))*(1 + sin(fi))*(1 + 0.03*sin(9*5*fi))*(1 + 0.04*sin(9*33*fi))
         //парабола sin(fi)/Pow(cos(fi), 2)
         //Abs((1.5*Sin(fi)) + (0.8*Sin(2*fi)) + (0.6*Sin(3*fi)))*(1 + (0.3*Cos(5*fi)))
+        public System.Windows.Forms.DataVisualization.Charting.Chart CartesianGraph
+        {
+            get { return cartesianGraph_chart; }
+        }
         public CreatingNewFunctionForm()
         {
             InitializeComponent();
