@@ -24,6 +24,7 @@ namespace PolarGraphsWinForms
         //Кардиоида: Pow(2*(1+cos(fi)), 0.25)
         //конопля  (1 + sin(9*fi))*(1 + sin(fi))*(1 + 0.03*sin(9*5*fi))*(1 + 0.04*sin(9*33*fi))
         //парабола sin(fi)/Pow(cos(fi), 2)
+        //Abs((1.5*Sin(fi)) + (0.8*Sin(2*fi)) + (0.6*Sin(3*fi)))*(1 + (0.3*Cos(5*fi)))
         public CreatingNewFunctionForm()
         {
             InitializeComponent();
@@ -35,9 +36,9 @@ namespace PolarGraphsWinForms
             сartesianGraph_chart.Series[0].Points.Clear();
 
             string function = function_textBox.Text;
-            float startConcer = (float)startСorner_numericUpDown.Value;
-            float endConcer = (float)endСorner_numericUpDown.Value;
-            float step = (float)step_numericUpDown.Value;
+            double startConcer = (double)startСorner_numericUpDown.Value;
+            double endConcer = (double)endСorner_numericUpDown.Value;
+            double step = (double)step_numericUpDown.Value;
 
             /*ChartArea polarArea = polarGraph_chart.ChartAreas[0];
             polarArea.AxisX.Minimum = -1.5;
@@ -59,7 +60,7 @@ namespace PolarGraphsWinForms
             cartesianArea.AxisY.Crossing = 0;
 
             var (listPolarPoints, listCartesianPoints) = readFunction.ConvertUserFunction(startConcer, endConcer, step, function);
-           
+
            /* foreach (Points point in listPolarPoints)
             {
                 polarGraph_chart.Series[0].Points.AddXY(point.coordinateX, point.coordinateY);

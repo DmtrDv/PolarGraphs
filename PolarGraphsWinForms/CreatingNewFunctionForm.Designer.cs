@@ -237,7 +237,7 @@
             this.addons_button.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.addons_button.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.addons_button.Location = new System.Drawing.Point(6, 674);
+            this.addons_button.Location = new System.Drawing.Point(6, 704);
             this.addons_button.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.addons_button.Name = "addons_button";
             this.addons_button.Size = new System.Drawing.Size(181, 50);
