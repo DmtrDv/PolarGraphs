@@ -16,7 +16,7 @@ namespace PolarGraphsWinForms
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new CreatingNewFunctionForm());
+            Application.Run(new MainForm());
         }
     }
 }

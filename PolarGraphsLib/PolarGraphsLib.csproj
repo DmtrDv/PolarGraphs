@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ListPolarFunction.cs" />
     <Compile Include="Points.cs" />
     <Compile Include="ReadUserFunction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

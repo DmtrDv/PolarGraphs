@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CreatingNewFunctionForm));
             this.cartesianGraph_chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.parameters_groupBox = new System.Windows.Forms.GroupBox();
@@ -63,18 +63,18 @@
             this.cartesianGraph_chart.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea1.Name = "ChartArea1";
-            this.cartesianGraph_chart.ChartAreas.Add(chartArea1);
+            chartArea4.Name = "ChartArea1";
+            this.cartesianGraph_chart.ChartAreas.Add(chartArea4);
             this.cartesianGraph_chart.Location = new System.Drawing.Point(8, 6);
             this.cartesianGraph_chart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cartesianGraph_chart.Name = "cartesianGraph_chart";
             this.cartesianGraph_chart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Berry;
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            series1.Name = "Series1";
-            this.cartesianGraph_chart.Series.Add(series1);
-            this.cartesianGraph_chart.Size = new System.Drawing.Size(790, 750);
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series4.Color = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            series4.Name = "Series1";
+            this.cartesianGraph_chart.Series.Add(series4);
+            this.cartesianGraph_chart.Size = new System.Drawing.Size(781, 526);
             this.cartesianGraph_chart.TabIndex = 10;
             // 
             // parameters_groupBox
@@ -95,7 +95,7 @@
             this.parameters_groupBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.parameters_groupBox.Name = "parameters_groupBox";
             this.parameters_groupBox.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.parameters_groupBox.Size = new System.Drawing.Size(349, 185);
+            this.parameters_groupBox.Size = new System.Drawing.Size(344, 185);
             this.parameters_groupBox.TabIndex = 18;
             this.parameters_groupBox.TabStop = false;
             this.parameters_groupBox.Text = "Параметры";
@@ -191,7 +191,7 @@
             this.function_textBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.function_textBox.Multiline = true;
             this.function_textBox.Name = "function_textBox";
-            this.function_textBox.Size = new System.Drawing.Size(503, 58);
+            this.function_textBox.Size = new System.Drawing.Size(498, 58);
             this.function_textBox.TabIndex = 19;
             // 
             // Input_label
@@ -212,7 +212,7 @@
             this.Info_label.AutoSize = true;
             this.Info_label.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Info_label.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Info_label.Location = new System.Drawing.Point(482, 26);
+            this.Info_label.Location = new System.Drawing.Point(477, 26);
             this.Info_label.Name = "Info_label";
             this.Info_label.Size = new System.Drawing.Size(24, 28);
             this.Info_label.TabIndex = 21;
@@ -229,13 +229,12 @@
             // 
             // build_button
             // 
-            this.build_button.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.build_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.build_button.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.build_button.Location = new System.Drawing.Point(327, 704);
+            this.build_button.Location = new System.Drawing.Point(327, 480);
             this.build_button.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.build_button.Name = "build_button";
-            this.build_button.Size = new System.Drawing.Size(181, 50);
+            this.build_button.Size = new System.Drawing.Size(176, 50);
             this.build_button.TabIndex = 22;
             this.build_button.Text = "Построить";
             this.build_button.UseVisualStyleBackColor = true;
@@ -246,10 +245,10 @@
             this.addons_button.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.addons_button.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.addons_button.Location = new System.Drawing.Point(6, 704);
+            this.addons_button.Location = new System.Drawing.Point(6, 480);
             this.addons_button.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.addons_button.Name = "addons_button";
-            this.addons_button.Size = new System.Drawing.Size(181, 50);
+            this.addons_button.Size = new System.Drawing.Size(176, 50);
             this.addons_button.TabIndex = 23;
             this.addons_button.Text = "Надстройки";
             this.addons_button.UseVisualStyleBackColor = true;
@@ -273,17 +272,18 @@
             this.splitContainer1.Panel2.Controls.Add(this.build_button);
             this.splitContainer1.Panel2.Controls.Add(this.Input_label);
             this.splitContainer1.Panel2.Controls.Add(this.Info_label);
-            this.splitContainer1.Size = new System.Drawing.Size(1316, 762);
-            this.splitContainer1.SplitterDistance = 796;
+            this.splitContainer1.Size = new System.Drawing.Size(1302, 538);
+            this.splitContainer1.SplitterDistance = 787;
             this.splitContainer1.TabIndex = 24;
             // 
             // CreatingNewFunctionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1316, 762);
+            this.ClientSize = new System.Drawing.Size(1302, 538);
             this.Controls.Add(this.splitContainer1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MinimumSize = new System.Drawing.Size(1320, 427);
             this.Name = "CreatingNewFunctionForm";
             this.Tag = "";
             this.Text = "CreatingNewFunctionForm";
