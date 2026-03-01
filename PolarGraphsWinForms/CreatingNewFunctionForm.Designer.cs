@@ -105,11 +105,11 @@
             this.step_numericUpDown.DecimalPlaces = 2;
             this.step_numericUpDown.Location = new System.Drawing.Point(210, 135);
             this.step_numericUpDown.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.step_numericUpDown.Maximum = new decimal(new int[] {
-            100000,
+            this.step_numericUpDown.Minimum = new decimal(new int[] {
+            1,
             0,
             0,
-            0});
+            65536});
             this.step_numericUpDown.Name = "step_numericUpDown";
             this.step_numericUpDown.Size = new System.Drawing.Size(120, 34);
             this.step_numericUpDown.TabIndex = 27;
@@ -242,8 +242,7 @@
             // 
             // addons_button
             // 
-            this.addons_button.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.addons_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.addons_button.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.addons_button.Location = new System.Drawing.Point(6, 480);
             this.addons_button.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);

@@ -21,8 +21,7 @@ namespace PolarGraphsLib
 
                 string expression = userFunction.ToLower().Replace(" ", "")
                                                           .Replace("abs", "AbsDouble")
-                                                          .Replace("pi", "Pi")
-                                                          .Replace("e", "E");
+                                                          .Replace("pi", "Pi");
                 expression = Regex.Replace(expression, @"\basin\b", "Asin");
                 expression = Regex.Replace(expression, @"\bacos\b", "Acos");
                 expression = Regex.Replace(expression, @"\bsin\b", "Sin");
@@ -36,7 +35,7 @@ namespace PolarGraphsLib
                 NCalc.Expression expr = new NCalc.Expression(expression);
                 expr.Parameters["fi"] = concerRad;
                 expr.Parameters["Pi"] = Math.PI;
-                expr.Parameters["E"] = Math.E;
+                expr.Parameters["e"] = Math.E;
                 expr.EvaluateFunction += (name, args) =>
                 {
                     switch (name)

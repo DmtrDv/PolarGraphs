@@ -36,43 +36,74 @@ namespace PolarGraphsWinForms
         ReadUserFunction readFunction = new ReadUserFunction();
         private void build_button_Click(object sender, EventArgs e)
         {
-           // polarGraph_chart.Series[0].Points.Clear();
-            cartesianGraph_chart.Series[0].Points.Clear();
-
-            string function = function_textBox.Text;
-            double startConcer = (double)startСorner_numericUpDown.Value;
-            double endConcer = (double)endСorner_numericUpDown.Value;
-            double step = (double)step_numericUpDown.Value;
-
-            /*ChartArea polarArea = polarGraph_chart.ChartAreas[0];
-            polarArea.AxisX.Minimum = -1.5;
-            polarArea.AxisX.Maximum = 1.5;
-            polarArea.AxisY.Minimum = -1.5;
-            polarArea.AxisY.Maximum = 1.5;
-            polarArea.AxisX.Crossing = 0;
-            polarArea.AxisY.Crossing = 0;
-            polarArea.AxisX.Interval = 0.5;
-            polarArea.AxisY.Interval = 0.5;*/
-
-            // Настройка декартоволго графика
-            ChartArea cartesianArea = cartesianGraph_chart.ChartAreas[0];
-            cartesianArea.AxisX.Minimum = -5;
-            cartesianArea.AxisX.Maximum = 5;
-            cartesianArea.AxisY.Minimum = -5;
-            cartesianArea.AxisY.Maximum = 5;
-            cartesianArea.AxisX.Crossing = 0;
-            cartesianArea.AxisY.Crossing = 0;
-
-            var (listPolarPoints, listCartesianPoints) = readFunction.ConvertUserFunction(startConcer, endConcer, step, function);
-
-           /* foreach (Points point in listPolarPoints)
+            try
             {
-                polarGraph_chart.Series[0].Points.AddXY(point.coordinateX, point.coordinateY);
-            }*/
-            foreach (Points point in listCartesianPoints)
-            {
-                cartesianGraph_chart.Series[0].Points.AddXY(point.coordinateX, point.coordinateY);
+                // polarGraph_chart.Series[0].Points.Clear();
+                cartesianGraph_chart.Series[0].Points.Clear();
+
+                string function = function_textBox.Text;
+                double startConcer = (double)startСorner_numericUpDown.Value;
+                double endConcer = (double)endСorner_numericUpDown.Value;
+                double step = (double)step_numericUpDown.Value;
+
+                /*ChartArea polarArea = polarGraph_chart.ChartAreas[0];
+                polarArea.AxisX.Minimum = -1.5;
+                polarArea.AxisX.Maximum = 1.5;
+                polarArea.AxisY.Minimum = -1.5;
+                polarArea.AxisY.Maximum = 1.5;
+                polarArea.AxisX.Crossing = 0;
+                polarArea.AxisY.Crossing = 0;
+                polarArea.AxisX.Interval = 0.5;
+                polarArea.AxisY.Interval = 0.5;*/
+
+                if (string.IsNullOrWhiteSpace(function))
+                {
+                    MessageBox.Show("Введите функцию.", "Предупреждение",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                if (startСorner_numericUpDown.Value >= endСorner_numericUpDown.Value)
+                {
+                    MessageBox.Show("Начальный угол должен быть меньше конечного угла.",
+                        "Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // Настройка декартоволго графика
+                ChartArea cartesianArea = cartesianGraph_chart.ChartAreas[0];
+                cartesianArea.AxisX.Crossing = 0;
+                cartesianArea.AxisY.Crossing = 0;
+                /*cartesianArea.AxisX.Minimum = -5;
+                cartesianArea.AxisX.Maximum = 5;
+                cartesianArea.AxisY.Minimum = -5;
+                cartesianArea.AxisY.Maximum = 5;*/
+                /*cartesianArea.AxisX.Minimum = cartesianGraph_chart.Series[0].XValueMember.Min();
+                cartesianArea.AxisX.Maximum = cartesianGraph_chart.Series[0].XValueMember.Max();
+                cartesianArea.AxisY.Minimum = cartesianGraph_chart.Series[0].YValueMembers.Min();
+                cartesianArea.AxisY.Maximum = cartesianGraph_chart.Series[0].YValueMembers.Max();*/
+
+
+                var (listPolarPoints, listCartesianPoints) = readFunction.ConvertUserFunction(startConcer, endConcer, step, function);
+
+                /* foreach (Points point in listPolarPoints)
+                 {
+                     polarGraph_chart.Series[0].Points.AddXY(point.coordinateX, point.coordinateY);
+                 }*/
+                foreach (Points point in listCartesianPoints)
+                {
+                    cartesianGraph_chart.Series[0].Points.AddXY(point.coordinateX, point.coordinateY);
+                }
+                if (cartesianGraph_chart.Series[0].Points.Count == 0)
+                {
+                    MessageBox.Show($"Ошибка функции: результат равен 0",
+                            "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
+            catch(Exception ex)
+            {
+                MessageBox.Show($"Ошибка функции или её значений:\n{ex.Message}",
+                            "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }            
         }
 
         private void addons_button_Click(object sender, EventArgs e)

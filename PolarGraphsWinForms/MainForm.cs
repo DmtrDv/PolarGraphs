@@ -53,7 +53,7 @@ namespace PolarGraphsWinForms
         private void exportIn_ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // Проверяем, есть ли активная форма с графиком
-            if (currentFunctionForm == null || currentFunctionForm.cartesianGraph_chart.Series[0].Points == null)
+            if (currentFunctionForm == null || currentFunctionForm.cartesianGraph_chart.Series[0].Points.Count == 0)
             {
                 MessageBox.Show("Нет активного графика для экспорта.", "Информация",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
