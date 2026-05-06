@@ -304,7 +304,7 @@
         #endregion
         internal System.Windows.Forms.DataVisualization.Charting.Chart cartesianGraph_chart;
         private System.Windows.Forms.GroupBox parameters_groupBox;
-        private System.Windows.Forms.TextBox function_textBox;
+        public System.Windows.Forms.TextBox function_textBox;
         private System.Windows.Forms.Label Input_label;
         private System.Windows.Forms.Label Info_label;
         private System.Windows.Forms.ToolTip infoRightInput_toolTip;

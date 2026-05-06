@@ -22,7 +22,7 @@ namespace PolarGraphsWinForms
         //астроида: 1/( Pow( Pow(abs(cos(fi)), 2/3) + Pow(abs(sin(fi)), 2/3) , 3/2) ) // чтоб изменить высоту и ширину нужно sin или cos умножить
         //Улитка Паскаля: cos(fi)+0.25
         //Кардиоида: Pow(2*(1+cos(fi)), 0.25)
-        //конопля  (1 + sin(9*fi))*(1 + sin(fi))*(1 + 0.03*sin(9*5*fi))*(1 + 0.04*sin(9*33*fi))
+        //листочек  (1 + sin(9*fi))*(1 + sin(fi))*(1 + 0.03*sin(9*5*fi))*(1 + 0.04*sin(9*33*fi))
         //парабола sin(fi)/Pow(cos(fi), 2)
         //Abs((1.5*Sin(fi)) + (0.8*Sin(2*fi)) + (0.6*Sin(3*fi)))*(1 + (0.3*Cos(5*fi)))
         public System.Windows.Forms.DataVisualization.Charting.Chart CartesianGraph
@@ -32,6 +32,11 @@ namespace PolarGraphsWinForms
         public CreatingNewFunctionForm()
         {
             InitializeComponent();
+        }
+        public CreatingNewFunctionForm(string func)
+        {
+            InitializeComponent();
+            function_textBox.Text = func;
         }
         ReadUserFunction readFunction = new ReadUserFunction();
         private void build_button_Click(object sender, EventArgs e)
@@ -81,7 +86,6 @@ namespace PolarGraphsWinForms
                 cartesianArea.AxisX.Maximum = cartesianGraph_chart.Series[0].XValueMember.Max();
                 cartesianArea.AxisY.Minimum = cartesianGraph_chart.Series[0].YValueMembers.Min();
                 cartesianArea.AxisY.Maximum = cartesianGraph_chart.Series[0].YValueMembers.Max();*/
-
 
                 var (listPolarPoints, listCartesianPoints) = readFunction.ConvertUserFunction(startConcer, endConcer, step, function);
 

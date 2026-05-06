@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PolarGraphsLib;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,10 +15,24 @@ namespace PolarGraphsWinForms
     public partial class MainForm: Form
     {
         private CreatingNewFunctionForm currentFunctionForm;
+        private List<PolarFunction> list = new List<PolarFunction>() { 
+            (new PolarFunction { Id = 0, Name = "Астроида", Function = "1/( Pow( Pow(abs(cos(fi)), 2/3) + Pow(abs(sin(fi)), 2/3) , 3/2) )" }),
+            (new PolarFunction { Id = 1, Name = "Улитка Паскаля", Function = "cos(fi)+0.25" }),
+            (new PolarFunction { Id = 2, Name = "Кардиоида", Function = "Pow(2*(1+cos(fi)), 0.25)" }),
+            (new PolarFunction { Id = 3, Name = "Листочек", Function = "(1 + sin(9*fi))*(1 + sin(fi))*(1 + 0.03*sin(9*5*fi))*(1 + 0.04*sin(9*33*fi))" }),
+            //(new ListPolarFunction { Id = 4, Name = "Парабола", Function = "sin(fi)/Pow(cos(fi), 2)" }),
+            (new PolarFunction { Id = 5, Name = "Наверно бабочка", Function = "Abs((1.5*Sin(fi)) + (0.8*Sin(2*fi)) + (0.6*Sin(3*fi)))*(1 + (0.3*Cos(5*fi)))" })};
+
+        string func;
         public MainForm()
         {
             InitializeComponent();
             ShowFormInWorkArea(new CreatingNewFunctionForm());
+
+            for (int i = 0; i < list.Count; i++)
+            {
+                FunctionList_toolStripComboBox.Items.Add(list[i].Name);
+            }
         }
         private void ShowFormInWorkArea(CreatingNewFunctionForm form)
         {
@@ -120,6 +135,31 @@ namespace PolarGraphsWinForms
             {
                 // Восстанавливаем оригинальный фон
                 chart.BackColor = originalBackColor;
+            }
+        }
+        private void FunctionList_toolStripComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string function = FunctionList_toolStripComboBox.Text;
+            
+            foreach (PolarFunction polarFunction in list)
+            {
+                if (function == polarFunction.Name)
+                {
+                    func = polarFunction.Function;
+                    ShowFormInWorkArea(new CreatingNewFunctionForm(func));
+                }
+            }
+        }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                DialogResult result = MessageBox.Show("Вы точно хотите выйти?", "Подтверждение", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.No)
+                {
+                    e.Cancel = true;
+                }
             }
         }
     }

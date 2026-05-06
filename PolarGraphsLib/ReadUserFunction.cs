@@ -32,6 +32,10 @@ namespace PolarGraphsLib
                 //expression = Regex.Replace(expression, @"\btan\b", "Tan");
                 //expression = Regex.Replace(expression, @"\blog\b", "Log");
 
+                ///
+                /// получше узнать atan2()
+                ///
+
                 NCalc.Expression expr = new NCalc.Expression(expression);
                 expr.Parameters["fi"] = concerRad;
                 expr.Parameters["Pi"] = Math.PI;

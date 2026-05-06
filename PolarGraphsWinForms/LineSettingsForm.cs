@@ -17,13 +17,13 @@ namespace PolarGraphsWinForms
         public int greenColor { get; private set; }
         public int blueColor { get; private set; }
         public int thicknessLine { get; private set; }
-        private Color _currentColor;
-        private int _currentThickness;
+        private Color currentColor_;
+        private int currentThickness_;
         public LineSettingsForm(Color currentColor, int currentThickness)
         {
             InitializeComponent();
-            _currentColor = currentColor;
-            _currentThickness = currentThickness;
+            currentColor_ = currentColor;
+            currentThickness_ = currentThickness;
             // Одна строка - перемещение за любую область формы
             this.MouseDown += (s, e) =>
             {
@@ -36,10 +36,10 @@ namespace PolarGraphsWinForms
         }
         private void LineSettingsForm_Load(object sender, EventArgs e)
         {
-            red_numericUpDown.Value = _currentColor.R;
-            green_numericUpDown.Value = _currentColor.G;
-            blue_numericUpDown.Value = _currentColor.B;
-            thickness_numericUpDown.Value = _currentThickness;
+            red_numericUpDown.Value = currentColor_.R;
+            green_numericUpDown.Value = currentColor_.G;
+            blue_numericUpDown.Value = currentColor_.B;
+            thickness_numericUpDown.Value = currentThickness_;
         }
 
         [DllImport("user32.dll")]

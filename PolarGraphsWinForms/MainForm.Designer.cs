@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripComboBox1 = new System.Windows.Forms.ToolStripComboBox();
+            this.FunctionList_toolStripComboBox = new System.Windows.Forms.ToolStripComboBox();
             this.work_panel = new System.Windows.Forms.Panel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -44,20 +44,20 @@
             // 
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripComboBox1});
+            this.FunctionList_toolStripComboBox});
             this.toolStrip1.Location = new System.Drawing.Point(0, 28);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1402, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(1402, 28);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // toolStripComboBox1
+            // FunctionList_toolStripComboBox
             // 
-            this.toolStripComboBox1.AccessibleName = "";
-            this.toolStripComboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Standard;
-            this.toolStripComboBox1.Name = "toolStripComboBox1";
-            this.toolStripComboBox1.Size = new System.Drawing.Size(155, 28);
-            this.toolStripComboBox1.Visible = false;
+            this.FunctionList_toolStripComboBox.AccessibleName = "";
+            this.FunctionList_toolStripComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Standard;
+            this.FunctionList_toolStripComboBox.Name = "FunctionList_toolStripComboBox";
+            this.FunctionList_toolStripComboBox.Size = new System.Drawing.Size(155, 28);
+            this.FunctionList_toolStripComboBox.SelectedIndexChanged += new System.EventHandler(this.FunctionList_toolStripComboBox_SelectedIndexChanged);
             // 
             // work_panel
             // 
@@ -104,14 +104,12 @@
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
             this.toolStripMenuItem2.Size = new System.Drawing.Size(81, 24);
             this.toolStripMenuItem2.Text = "Справка";
-            this.toolStripMenuItem2.Visible = false;
             // 
             // настройкиToolStripMenuItem
             // 
             this.настройкиToolStripMenuItem.Name = "настройкиToolStripMenuItem";
             this.настройкиToolStripMenuItem.Size = new System.Drawing.Size(98, 24);
             this.настройкиToolStripMenuItem.Text = "Настройки";
-            this.настройкиToolStripMenuItem.Visible = false;
             // 
             // MainForm
             // 
@@ -124,7 +122,8 @@
             this.MainMenuStrip = this.menuStrip1;
             this.MinimumSize = new System.Drawing.Size(1360, 550);
             this.Name = "MainForm";
-            this.Text = "MainForm";
+            this.Text = "Графики";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
@@ -137,7 +136,7 @@
         #endregion
 
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripComboBox toolStripComboBox1;
+        private System.Windows.Forms.ToolStripComboBox FunctionList_toolStripComboBox;
         private System.Windows.Forms.Panel work_panel;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
