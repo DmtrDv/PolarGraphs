@@ -239,9 +239,13 @@
             // 
             this.infoRightInput_toolTip.AutomaticDelay = 15000;
             this.infoRightInput_toolTip.AutoPopDelay = 150000;
+            this.infoRightInput_toolTip.BackColor = System.Drawing.SystemColors.Window;
             this.infoRightInput_toolTip.InitialDelay = 500;
+            this.infoRightInput_toolTip.OwnerDraw = true;
             this.infoRightInput_toolTip.ReshowDelay = 3000;
             this.infoRightInput_toolTip.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.infoRightInput_toolTip.Draw += new System.Windows.Forms.DrawToolTipEventHandler(this.infoRightInput_toolTip_Draw);
+            this.infoRightInput_toolTip.Popup += new System.Windows.Forms.PopupEventHandler(this.infoRightInput_toolTip_Popup);
             // 
             // build_button
             // 

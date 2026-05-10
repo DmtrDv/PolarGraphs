@@ -19,12 +19,6 @@ namespace PolarGraphsWinForms
 {
     public partial class CreatingNewFunctionForm: Form
     {
-        //астроида: 1/( Pow( Pow(abs(cos(fi)), 2/3) + Pow(abs(sin(fi)), 2/3) , 3/2) ) // чтоб изменить высоту и ширину нужно sin или cos умножить
-        //Улитка Паскаля: cos(fi)+0.25
-        //Кардиоида: Pow(2*(1+cos(fi)), 0.25)
-        //листочек  (1 + sin(9*fi))*(1 + sin(fi))*(1 + 0.03*sin(9*5*fi))*(1 + 0.04*sin(9*33*fi))
-        //парабола sin(fi)/Pow(cos(fi), 2)
-        //Abs((1.5*Sin(fi)) + (0.8*Sin(2*fi)) + (0.6*Sin(3*fi)))*(1 + (0.3*Cos(5*fi)))
         public System.Windows.Forms.DataVisualization.Charting.Chart CartesianGraph
         {
             get { return cartesianGraph_chart; }
@@ -32,11 +26,16 @@ namespace PolarGraphsWinForms
         public CreatingNewFunctionForm()
         {
             InitializeComponent();
+            infoRightInput_toolTip.Draw += infoRightInput_toolTip_Draw;
+            infoRightInput_toolTip.Popup += infoRightInput_toolTip_Popup;
         }
+
         public CreatingNewFunctionForm(string func)
         {
             InitializeComponent();
             function_textBox.Text = func;
+            infoRightInput_toolTip.Draw += infoRightInput_toolTip_Draw;
+            infoRightInput_toolTip.Popup += infoRightInput_toolTip_Popup;
         }
         ReadUserFunction readFunction = new ReadUserFunction();
         private void build_button_Click(object sender, EventArgs e)
@@ -115,13 +114,8 @@ namespace PolarGraphsWinForms
             LineSettingsForm lineSettingsForm = new LineSettingsForm(cartesianGraph_chart.Series[0].Color, cartesianGraph_chart.Series[0].BorderWidth);
             if (lineSettingsForm.ShowDialog() == DialogResult.OK)
             {
-                //int red = lineSettingsForm.redColor;
-                //int green = lineSettingsForm.greenColor;
-                //int blue = lineSettingsForm.blueColor;
-                
                 int thickness = lineSettingsForm.thicknessLine;
-
-                Color newColor = lineSettingsForm.currentColor_;
+                Color newColor = lineSettingsForm.color;
 
                 cartesianGraph_chart.Series[0].Color = newColor;
                 cartesianGraph_chart.Series[0].BorderWidth = thickness;
@@ -135,6 +129,21 @@ namespace PolarGraphsWinForms
 
 
 
-        string info = "Информация:\r\n\tВсе числа пишите через точку: 0.5, 1.5, 3.14\r\n\tФункции вводятся в любом регистре.\r\n\r\nДоступные функции:\r\n\r\nФункция\t  Описание\t        Пример\r\nsin()\t  Синус\t\t\tsin(fi), sin(2*fi)\r\ncos()\t  Косинус\t\tcos(fi), cos(3*fi)\r\nasin()\t  Арксинус\t\tasin(0.5)\r\nacos()\t  Арккосинус\t\tacos(0.5)\r\nsqrt()\t  Квадратный корень\tsqrt(4)\r\npow()\t  Возведение в степень\tpow(2,3) = 2³\r\nabs()\t  Модуль\t\tabs(-5) = 5\r\n\r\nКонстанты:\r\nPi число π\r\nE  число е\r\n\r\nАрифметические операции:\r\n    + сложение\r\n    - вычитание\r\n    * умножение\r\n    / деление\r\n    pow() степень\r\n\r\nИспользуйте fi для угла в радианах\r\nПример: sin(fi), 2*cos(fi) + sin(2*fi)\r\n\r\nНЕЛЬЗЯ:\r\nПропускать знак умножения:\r\n    2sin(fi) → ошибка\r\n    2*sin(fi) → правильно\r\n\r\nИспользовать неизвестные функции:\r\n    sec(fi) → ошибка (нет такой функции)\r\n\r\nНеправильные скобки:\r\n    sin(fi → ошибка\r\n    sin(fi) → правильно";
+        string info = "Информация:\r\n\tВсе числа пишите через точку: 0.5, 1.5, 3.14\r\n\tФункции вводятся в любом регистре.\r\n\r\nДоступные функции:\r\n\r\nФункция\t  Описание\t        Пример\r\nsin()\t  Синус\t\t\tsin(fi), sin(2*fi)\r\ncos()\t  Косинус\t\tcos(fi), cos(3*fi)\r\nasin()\t  Арксинус\t\tasin(0.5)\r\nacos()\t  Арккосинус\t\tacos(0.5)\r\nsqrt()\t  Квадратный корень\tsqrt(4)\r\npow()\t  Возведение в степень\tpow(2,3) = 2³\r\nabs()\t  Модуль\t\t\tabs(-5) = 5\r\n\r\nКонстанты:\r\nPi число π\r\nE  число е\r\n\r\nАрифметические операции:\r\n    + сложение\r\n    - вычитание\r\n    * умножение\r\n    / деление\r\n    pow() степень\r\n\r\nИспользуйте fi для угла в радианах\r\nПример: sin(fi), 2*cos(fi) + sin(2*fi)\r\n\r\nНЕЛЬЗЯ:\r\nПропускать знак умножения:\r\n    2sin(fi) → ошибка\r\n    2*sin(fi) → правильно\r\n\r\nИспользовать неизвестные функции:\r\n    sec(fi) → ошибка (нет такой функции)\r\n\r\nНеправильные скобки:\r\n    sin(fi → ошибка\r\n    sin(fi) → правильно";
+
+        private void infoRightInput_toolTip_Draw(object sender, DrawToolTipEventArgs e)
+        {
+            e.DrawBackground();
+            e.DrawBorder();
+            using (Font newFont = new Font("Times New Roman", 13))
+            {
+                e.Graphics.DrawString(e.ToolTipText, newFont, Brushes.Black, new Point(2, 2));
+            }
+        }
+
+        private void infoRightInput_toolTip_Popup(object sender, PopupEventArgs e)
+        {
+            e.ToolTipSize = new Size(420, 805);
+        }
     }
 }
