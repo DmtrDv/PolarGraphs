@@ -39,11 +39,14 @@
             this.green_label = new System.Windows.Forms.Label();
             this.red_label = new System.Windows.Forms.Label();
             this.thickness_numericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.colorDialog_pictureBox = new System.Windows.Forms.PictureBox();
+            this.colorLine_colorDialog = new System.Windows.Forms.ColorDialog();
             this.color_groupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.blue_numericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.green_numericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.red_numericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.thickness_numericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.colorDialog_pictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // apply_button
@@ -191,12 +194,27 @@
             0,
             0});
             // 
+            // colorDialog_pictureBox
+            // 
+            this.colorDialog_pictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.colorDialog_pictureBox.Location = new System.Drawing.Point(315, 121);
+            this.colorDialog_pictureBox.Name = "colorDialog_pictureBox";
+            this.colorDialog_pictureBox.Size = new System.Drawing.Size(100, 50);
+            this.colorDialog_pictureBox.TabIndex = 30;
+            this.colorDialog_pictureBox.TabStop = false;
+            this.colorDialog_pictureBox.Click += new System.EventHandler(this.colorDialog_pictureBox_Click);
+            // 
+            // colorLine_colorDialog
+            // 
+            this.colorLine_colorDialog.FullOpen = true;
+            // 
             // LineSettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(611, 286);
+            this.Controls.Add(this.colorDialog_pictureBox);
             this.Controls.Add(this.thickness_numericUpDown);
             this.Controls.Add(this.color_groupBox);
             this.Controls.Add(this.thickness_label);
@@ -213,6 +231,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.green_numericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.red_numericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.thickness_numericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.colorDialog_pictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -231,5 +250,7 @@
         private System.Windows.Forms.NumericUpDown blue_numericUpDown;
         private System.Windows.Forms.NumericUpDown green_numericUpDown;
         private System.Windows.Forms.NumericUpDown thickness_numericUpDown;
+        private System.Windows.Forms.PictureBox colorDialog_pictureBox;
+        private System.Windows.Forms.ColorDialog colorLine_colorDialog;
     }
 }

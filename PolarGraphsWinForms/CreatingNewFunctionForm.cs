@@ -115,12 +115,13 @@ namespace PolarGraphsWinForms
             LineSettingsForm lineSettingsForm = new LineSettingsForm(cartesianGraph_chart.Series[0].Color, cartesianGraph_chart.Series[0].BorderWidth);
             if (lineSettingsForm.ShowDialog() == DialogResult.OK)
             {
-                int red = lineSettingsForm.redColor;
-                int green = lineSettingsForm.greenColor;
-                int blue = lineSettingsForm.blueColor;
+                //int red = lineSettingsForm.redColor;
+                //int green = lineSettingsForm.greenColor;
+                //int blue = lineSettingsForm.blueColor;
+                
                 int thickness = lineSettingsForm.thicknessLine;
 
-                Color newColor = Color.FromArgb(red, green, blue);
+                Color newColor = lineSettingsForm.currentColor_;
 
                 cartesianGraph_chart.Series[0].Color = newColor;
                 cartesianGraph_chart.Series[0].BorderWidth = thickness;

@@ -91,7 +91,7 @@
             this.parameters_groupBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.parameters_groupBox.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.parameters_groupBox.ForeColor = System.Drawing.Color.Black;
-            this.parameters_groupBox.Location = new System.Drawing.Point(5, 130);
+            this.parameters_groupBox.Location = new System.Drawing.Point(5, 150);
             this.parameters_groupBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.parameters_groupBox.Name = "parameters_groupBox";
             this.parameters_groupBox.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -105,6 +105,11 @@
             this.step_numericUpDown.DecimalPlaces = 2;
             this.step_numericUpDown.Location = new System.Drawing.Point(210, 135);
             this.step_numericUpDown.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.step_numericUpDown.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
             this.step_numericUpDown.Minimum = new decimal(new int[] {
             1,
             0,
@@ -129,6 +134,11 @@
             0,
             0,
             0});
+            this.endСorner_numericUpDown.Minimum = new decimal(new int[] {
+            360,
+            0,
+            0,
+            -2147483648});
             this.endСorner_numericUpDown.Name = "endСorner_numericUpDown";
             this.endСorner_numericUpDown.Size = new System.Drawing.Size(120, 34);
             this.endСorner_numericUpDown.TabIndex = 26;
@@ -148,6 +158,11 @@
             0,
             0,
             0});
+            this.startСorner_numericUpDown.Minimum = new decimal(new int[] {
+            360,
+            0,
+            0,
+            -2147483648});
             this.startСorner_numericUpDown.Name = "startСorner_numericUpDown";
             this.startСorner_numericUpDown.Size = new System.Drawing.Size(120, 34);
             this.startСorner_numericUpDown.TabIndex = 25;
@@ -186,12 +201,12 @@
             // 
             this.function_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.function_textBox.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.function_textBox.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.function_textBox.Location = new System.Drawing.Point(6, 58);
             this.function_textBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.function_textBox.Multiline = true;
             this.function_textBox.Name = "function_textBox";
-            this.function_textBox.Size = new System.Drawing.Size(498, 58);
+            this.function_textBox.Size = new System.Drawing.Size(498, 78);
             this.function_textBox.TabIndex = 19;
             // 
             // Input_label
@@ -226,6 +241,7 @@
             this.infoRightInput_toolTip.AutoPopDelay = 150000;
             this.infoRightInput_toolTip.InitialDelay = 500;
             this.infoRightInput_toolTip.ReshowDelay = 3000;
+            this.infoRightInput_toolTip.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             // 
             // build_button
             // 

@@ -13,11 +13,9 @@ namespace PolarGraphsWinForms
 {
     public partial class LineSettingsForm: Form
     {
-        public int redColor { get; private set; }
-        public int greenColor { get; private set; }
-        public int blueColor { get; private set; }
+        public Color color { get; private set; }
         public int thicknessLine { get; private set; }
-        private Color currentColor_;
+        public Color currentColor_;
         private int currentThickness_;
         public LineSettingsForm(Color currentColor, int currentThickness)
         {
@@ -36,10 +34,38 @@ namespace PolarGraphsWinForms
         }
         private void LineSettingsForm_Load(object sender, EventArgs e)
         {
+            colorDialog_pictureBox.BackColor = currentColor_;
             red_numericUpDown.Value = currentColor_.R;
             green_numericUpDown.Value = currentColor_.G;
             blue_numericUpDown.Value = currentColor_.B;
             thickness_numericUpDown.Value = currentThickness_;
+        }
+
+        private void cancel_button_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.Cancel;
+            this.Close();
+        }
+
+        private void apply_button_Click(object sender, EventArgs e)
+        {
+            color = currentColor_;
+            thicknessLine = (int)thickness_numericUpDown.Value;
+
+            DialogResult = DialogResult.OK;
+            this.Close();
+        }
+
+        private void colorDialog_pictureBox_Click(object sender, EventArgs e)
+        {
+            if (colorLine_colorDialog.ShowDialog() == DialogResult.OK)
+            {
+                currentColor_ = colorLine_colorDialog.Color;
+                colorDialog_pictureBox.BackColor = currentColor_;
+                red_numericUpDown.Value = currentColor_.R;
+                green_numericUpDown.Value = currentColor_.G;
+                blue_numericUpDown.Value = currentColor_.B;
+            }
         }
 
         [DllImport("user32.dll")]
@@ -50,23 +76,5 @@ namespace PolarGraphsWinForms
 
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
-
-        private void cancel_button_Click(object sender, EventArgs e)
-        {
-            DialogResult = DialogResult.Cancel;
-            this.Close();
-        }
-
-        private void apply_button_Click(object sender, EventArgs e)
-        {
-            redColor = (int)red_numericUpDown.Value;
-            greenColor = (int)green_numericUpDown.Value;
-            blueColor = (int)blue_numericUpDown.Value;
-            thicknessLine = (int)thickness_numericUpDown.Value;
-
-            DialogResult = DialogResult.OK;
-            this.Close();
-        }
-
     }
 }
