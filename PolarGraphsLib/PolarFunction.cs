@@ -11,5 +11,9 @@ namespace PolarGraphsLib
         public int Id { get; set; }
         public string Name { get; set; }
         public string Function { get; set; }
+        public double Step { get; set; }
+        public double StartCorner { get; set; }
+        public double EndCorner { get; set; }
+
     }
 }

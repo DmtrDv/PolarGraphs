@@ -30,10 +30,15 @@ namespace PolarGraphsWinForms
             infoRightInput_toolTip.Popup += infoRightInput_toolTip_Popup;
         }
 
-        public CreatingNewFunctionForm(string func)
+        public CreatingNewFunctionForm(PolarFunction func)
         {
             InitializeComponent();
-            function_textBox.Text = func;
+            function_textBox.Text = func.Function;
+            startСorner_numericUpDown.Value = (decimal)func.StartCorner;
+            endСorner_numericUpDown.Value = (decimal)func.EndCorner;
+            step_numericUpDown.Value = (decimal)func.Step;
+
+
             infoRightInput_toolTip.Draw += infoRightInput_toolTip_Draw;
             infoRightInput_toolTip.Popup += infoRightInput_toolTip_Popup;
         }
