@@ -19,10 +19,11 @@ namespace PolarGraphsWinForms
 {
     public partial class CreatingNewFunctionForm: Form
     {
-        public System.Windows.Forms.DataVisualization.Charting.Chart CartesianGraph
-        {
-            get { return cartesianGraph_chart; }
-        }
+        private List<Points> currentListPoints_ = new List<Points>();
+        private int indexCurrentListPoints_;
+        private Timer animationTimer_ = new Timer();
+        private int indexCyclePaintPoints_;
+
         public CreatingNewFunctionForm()
         {
             InitializeComponent();
@@ -47,6 +48,7 @@ namespace PolarGraphsWinForms
         {
             try
             {
+                animationTimer_.Stop();
                 // polarGraph_chart.Series[0].Points.Clear();
                 cartesianGraph_chart.Series[0].Points.Clear();
 
@@ -54,16 +56,6 @@ namespace PolarGraphsWinForms
                 double startConcer = (double)startСorner_numericUpDown.Value;
                 double endConcer = (double)endСorner_numericUpDown.Value;
                 double step = (double)step_numericUpDown.Value;
-
-                /*ChartArea polarArea = polarGraph_chart.ChartAreas[0];
-                polarArea.AxisX.Minimum = -1.5;
-                polarArea.AxisX.Maximum = 1.5;
-                polarArea.AxisY.Minimum = -1.5;
-                polarArea.AxisY.Maximum = 1.5;
-                polarArea.AxisX.Crossing = 0;
-                polarArea.AxisY.Crossing = 0;
-                polarArea.AxisX.Interval = 0.5;
-                polarArea.AxisY.Interval = 0.5;*/
 
                 if (string.IsNullOrWhiteSpace(function))
                 {
@@ -78,34 +70,57 @@ namespace PolarGraphsWinForms
                     return;
                 }
 
-                // Настройка декартоволго графика
-                ChartArea cartesianArea = cartesianGraph_chart.ChartAreas[0];
-                cartesianArea.AxisX.Crossing = 0;
-                cartesianArea.AxisY.Crossing = 0;
-                /*cartesianArea.AxisX.Minimum = -5;
-                cartesianArea.AxisX.Maximum = 5;
-                cartesianArea.AxisY.Minimum = -5;
-                cartesianArea.AxisY.Maximum = 5;*/
-                /*cartesianArea.AxisX.Minimum = cartesianGraph_chart.Series[0].XValueMember.Min();
-                cartesianArea.AxisX.Maximum = cartesianGraph_chart.Series[0].XValueMember.Max();
-                cartesianArea.AxisY.Minimum = cartesianGraph_chart.Series[0].YValueMembers.Min();
-                cartesianArea.AxisY.Maximum = cartesianGraph_chart.Series[0].YValueMembers.Max();*/
+                
 
                 var (listPolarPoints, listCartesianPoints) = readFunction.ConvertUserFunction(startConcer, endConcer, step, function);
 
+                // Настройка декартоволго графика
+                (double axisXMax, double axisYMax) = MaxXY(listCartesianPoints);
+                (double axisXMin, double axisYMin) = MinXY(listCartesianPoints);
+
+                ChartArea cartesianArea = cartesianGraph_chart.ChartAreas[0];
+                cartesianArea.AxisX.Crossing = 0;
+                cartesianArea.AxisY.Crossing = 0;
+                cartesianArea.AxisX.Maximum = axisXMax;
+                cartesianArea.AxisY.Maximum = axisYMax;
+                cartesianArea.AxisX.Minimum = axisXMin;
+                cartesianArea.AxisY.Minimum = axisYMin;
+                /*ChartArea polarArea = polarGraph_chart.ChartAreas[0];
+                polarArea.AxisX.Minimum = -1.5;
+                polarArea.AxisX.Maximum = 1.5;
+                polarArea.AxisY.Minimum = -1.5;
+                polarArea.AxisY.Maximum = 1.5;
+                polarArea.AxisX.Crossing = 0;
+                polarArea.AxisY.Crossing = 0;
+                polarArea.AxisX.Interval = 0.5;
+                polarArea.AxisY.Interval = 0.5;*/
+                
                 /* foreach (Points point in listPolarPoints)
                  {
                      polarGraph_chart.Series[0].Points.AddXY(point.coordinateX, point.coordinateY);
                  }*/
-                foreach (Points point in listCartesianPoints)
+                if (animation_checkBox.Checked)
                 {
-                    cartesianGraph_chart.Series[0].Points.AddXY(point.coordinateX, point.coordinateY);
+                    animationTimer_.Interval = (int)(111 - (int)speedAnimation_numericUpDown.Value * 11);
+                    animationTimer_.Tick += AnimationBuild;
+                    indexCurrentListPoints_ = 0;
+                    indexCyclePaintPoints_ = 1;
+                    currentListPoints_ = listCartesianPoints;
+                    animationTimer_.Start();
                 }
-                if (cartesianGraph_chart.Series[0].Points.Count == 0)
+                else
                 {
-                    MessageBox.Show($"Ошибка функции: результат равен 0",
+                    foreach (Points point in listCartesianPoints)
+                    {
+                        cartesianGraph_chart.Series[0].Points.AddXY(point.coordinateX, point.coordinateY);
+                    }
+                }
+                /*if (cartesianGraph_chart.Series[0].Points.Count == 0)
+                {
+                    MessageBox.Show($"Ошибка: функция не содержит точек",
                             "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                }*/
+                //MessageBox.Show($"{listCartesianPoints.Count}");
             }
             catch(Exception ex)
             {
@@ -113,7 +128,34 @@ namespace PolarGraphsWinForms
                             "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }            
         }
+        private void AnimationBuild(object sender, EventArgs eventArgs)
+        {
+            if (currentListPoints_ == null || indexCurrentListPoints_ == currentListPoints_.Count)
+            {
+                animationTimer_.Stop();
+                return;
+            }
 
+            int countPointInTick = (int)pointInTick_numericUpDown.Value;
+            if (currentListPoints_.Count % countPointInTick != 0)
+            {
+                int countFullCircle = currentListPoints_.Count / countPointInTick;
+                if (indexCyclePaintPoints_ == countFullCircle)
+                {
+
+                    countPointInTick = currentListPoints_.Count - countPointInTick * countFullCircle;
+                }
+            }
+
+            for (int i = 0; i < countPointInTick; i++)
+            {
+                Points point = currentListPoints_[indexCurrentListPoints_];
+                cartesianGraph_chart.Series[0].Points.AddXY(point.coordinateX, point.coordinateY);
+                indexCurrentListPoints_++;
+            }
+
+            indexCyclePaintPoints_++;
+        }
         private void addons_button_Click(object sender, EventArgs e)
         {
             LineSettingsForm lineSettingsForm = new LineSettingsForm(cartesianGraph_chart.Series[0].Color, cartesianGraph_chart.Series[0].BorderWidth);
@@ -149,6 +191,45 @@ namespace PolarGraphsWinForms
         private void infoRightInput_toolTip_Popup(object sender, PopupEventArgs e)
         {
             e.ToolTipSize = new Size(420, 805);
+        }
+
+        private static (double, double) MaxXY(List<Points>list)
+        {
+            double maxX = list[0].coordinateX;
+            double maxY = list[0].coordinateY;
+
+            for (int i = 0; i < list.Count; i++)
+            {
+                if (maxX < list[i].coordinateX)
+                {
+                    maxX = list[i].coordinateX;
+                }
+
+                if (maxY < list[i].coordinateY)
+                {
+                    maxY = list[i].coordinateY;
+                }
+            }
+            return (maxX+0.25, maxY+0.25);
+        }
+        private static (double, double) MinXY(List<Points> list)
+        {
+            double minX = list[0].coordinateX;
+            double minY = list[0].coordinateY;
+
+            for (int i = 0; i < list.Count; i++)
+            {
+                if (minX > list[i].coordinateX)
+                {
+                    minX = list[i].coordinateX;
+                }
+
+                if (minY > list[i].coordinateY)
+                {
+                    minY = list[i].coordinateY;
+                }
+            }
+            return (minX-0.25, minY-0.25);
         }
     }
 }
