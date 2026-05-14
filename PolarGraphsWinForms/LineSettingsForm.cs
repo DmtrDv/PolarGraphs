@@ -35,9 +35,6 @@ namespace PolarGraphsWinForms
         private void LineSettingsForm_Load(object sender, EventArgs e)
         {
             colorDialog_pictureBox.BackColor = currentColor_;
-            red_numericUpDown.Value = currentColor_.R;
-            green_numericUpDown.Value = currentColor_.G;
-            blue_numericUpDown.Value = currentColor_.B;
             thickness_numericUpDown.Value = currentThickness_;
         }
 
@@ -62,9 +59,6 @@ namespace PolarGraphsWinForms
             {
                 currentColor_ = colorLine_colorDialog.Color;
                 colorDialog_pictureBox.BackColor = currentColor_;
-                red_numericUpDown.Value = currentColor_.R;
-                green_numericUpDown.Value = currentColor_.G;
-                blue_numericUpDown.Value = currentColor_.B;
             }
         }
 

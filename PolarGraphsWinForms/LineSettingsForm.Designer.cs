@@ -32,19 +32,10 @@
             this.cancel_button = new System.Windows.Forms.Button();
             this.thickness_label = new System.Windows.Forms.Label();
             this.color_groupBox = new System.Windows.Forms.GroupBox();
-            this.blue_numericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.green_numericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.red_numericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.blue_label = new System.Windows.Forms.Label();
-            this.green_label = new System.Windows.Forms.Label();
-            this.red_label = new System.Windows.Forms.Label();
             this.thickness_numericUpDown = new System.Windows.Forms.NumericUpDown();
             this.colorDialog_pictureBox = new System.Windows.Forms.PictureBox();
             this.colorLine_colorDialog = new System.Windows.Forms.ColorDialog();
             this.color_groupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.blue_numericUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.green_numericUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.red_numericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.thickness_numericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.colorDialog_pictureBox)).BeginInit();
             this.SuspendLayout();
@@ -85,96 +76,19 @@
             // 
             // color_groupBox
             // 
-            this.color_groupBox.Controls.Add(this.blue_numericUpDown);
-            this.color_groupBox.Controls.Add(this.green_numericUpDown);
-            this.color_groupBox.Controls.Add(this.red_numericUpDown);
-            this.color_groupBox.Controls.Add(this.blue_label);
-            this.color_groupBox.Controls.Add(this.green_label);
-            this.color_groupBox.Controls.Add(this.red_label);
+            this.color_groupBox.Controls.Add(this.colorDialog_pictureBox);
             this.color_groupBox.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.color_groupBox.Location = new System.Drawing.Point(13, 13);
             this.color_groupBox.Name = "color_groupBox";
-            this.color_groupBox.Size = new System.Drawing.Size(178, 177);
+            this.color_groupBox.Size = new System.Drawing.Size(182, 186);
             this.color_groupBox.TabIndex = 23;
             this.color_groupBox.TabStop = false;
             this.color_groupBox.Text = "Цвет линии";
             // 
-            // blue_numericUpDown
-            // 
-            this.blue_numericUpDown.Location = new System.Drawing.Point(48, 130);
-            this.blue_numericUpDown.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-            this.blue_numericUpDown.Name = "blue_numericUpDown";
-            this.blue_numericUpDown.Size = new System.Drawing.Size(120, 34);
-            this.blue_numericUpDown.TabIndex = 28;
-            // 
-            // green_numericUpDown
-            // 
-            this.green_numericUpDown.Location = new System.Drawing.Point(48, 85);
-            this.green_numericUpDown.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-            this.green_numericUpDown.Name = "green_numericUpDown";
-            this.green_numericUpDown.Size = new System.Drawing.Size(120, 34);
-            this.green_numericUpDown.TabIndex = 28;
-            // 
-            // red_numericUpDown
-            // 
-            this.red_numericUpDown.Location = new System.Drawing.Point(48, 40);
-            this.red_numericUpDown.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-            this.red_numericUpDown.Name = "red_numericUpDown";
-            this.red_numericUpDown.Size = new System.Drawing.Size(120, 34);
-            this.red_numericUpDown.TabIndex = 27;
-            // 
-            // blue_label
-            // 
-            this.blue_label.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.blue_label.AutoSize = true;
-            this.blue_label.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.blue_label.Location = new System.Drawing.Point(6, 132);
-            this.blue_label.Name = "blue_label";
-            this.blue_label.Size = new System.Drawing.Size(26, 26);
-            this.blue_label.TabIndex = 26;
-            this.blue_label.Text = "B";
-            // 
-            // green_label
-            // 
-            this.green_label.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.green_label.AutoSize = true;
-            this.green_label.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.green_label.Location = new System.Drawing.Point(6, 87);
-            this.green_label.Name = "green_label";
-            this.green_label.Size = new System.Drawing.Size(28, 26);
-            this.green_label.TabIndex = 25;
-            this.green_label.Text = "G";
-            // 
-            // red_label
-            // 
-            this.red_label.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.red_label.AutoSize = true;
-            this.red_label.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.red_label.Location = new System.Drawing.Point(6, 42);
-            this.red_label.Name = "red_label";
-            this.red_label.Size = new System.Drawing.Size(27, 26);
-            this.red_label.TabIndex = 24;
-            this.red_label.Text = "R";
-            // 
             // thickness_numericUpDown
             // 
             this.thickness_numericUpDown.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.thickness_numericUpDown.Location = new System.Drawing.Point(320, 53);
+            this.thickness_numericUpDown.Location = new System.Drawing.Point(275, 52);
             this.thickness_numericUpDown.Maximum = new decimal(new int[] {
             10,
             0,
@@ -197,9 +111,9 @@
             // colorDialog_pictureBox
             // 
             this.colorDialog_pictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.colorDialog_pictureBox.Location = new System.Drawing.Point(315, 121);
+            this.colorDialog_pictureBox.Location = new System.Drawing.Point(5, 26);
             this.colorDialog_pictureBox.Name = "colorDialog_pictureBox";
-            this.colorDialog_pictureBox.Size = new System.Drawing.Size(100, 50);
+            this.colorDialog_pictureBox.Size = new System.Drawing.Size(170, 150);
             this.colorDialog_pictureBox.TabIndex = 30;
             this.colorDialog_pictureBox.TabStop = false;
             this.colorDialog_pictureBox.Click += new System.EventHandler(this.colorDialog_pictureBox_Click);
@@ -214,7 +128,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(611, 286);
-            this.Controls.Add(this.colorDialog_pictureBox);
             this.Controls.Add(this.thickness_numericUpDown);
             this.Controls.Add(this.color_groupBox);
             this.Controls.Add(this.thickness_label);
@@ -226,10 +139,6 @@
             this.Text = "LineSettingsForm";
             this.Load += new System.EventHandler(this.LineSettingsForm_Load);
             this.color_groupBox.ResumeLayout(false);
-            this.color_groupBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.blue_numericUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.green_numericUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.red_numericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.thickness_numericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.colorDialog_pictureBox)).EndInit();
             this.ResumeLayout(false);
@@ -243,12 +152,6 @@
         private System.Windows.Forms.Button cancel_button;
         private System.Windows.Forms.Label thickness_label;
         private System.Windows.Forms.GroupBox color_groupBox;
-        private System.Windows.Forms.NumericUpDown red_numericUpDown;
-        private System.Windows.Forms.Label blue_label;
-        private System.Windows.Forms.Label green_label;
-        private System.Windows.Forms.Label red_label;
-        private System.Windows.Forms.NumericUpDown blue_numericUpDown;
-        private System.Windows.Forms.NumericUpDown green_numericUpDown;
         private System.Windows.Forms.NumericUpDown thickness_numericUpDown;
         private System.Windows.Forms.PictureBox colorDialog_pictureBox;
         private System.Windows.Forms.ColorDialog colorLine_colorDialog;

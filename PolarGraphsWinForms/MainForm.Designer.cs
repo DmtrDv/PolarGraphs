@@ -47,7 +47,7 @@
             this.FunctionList_toolStripComboBox});
             this.toolStrip1.Location = new System.Drawing.Point(0, 28);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1402, 28);
+            this.toolStrip1.Size = new System.Drawing.Size(1342, 28);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -66,9 +66,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.work_panel.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.work_panel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.work_panel.Location = new System.Drawing.Point(12, 71);
+            this.work_panel.Location = new System.Drawing.Point(0, 71);
             this.work_panel.Name = "work_panel";
-            this.work_panel.Size = new System.Drawing.Size(1378, 690);
+            this.work_panel.Size = new System.Drawing.Size(1342, 579);
             this.work_panel.TabIndex = 1;
             // 
             // menuStrip1
@@ -80,7 +80,7 @@
             this.настройкиToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1402, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1342, 28);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -115,7 +115,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1402, 773);
+            this.ClientSize = new System.Drawing.Size(1342, 650);
             this.Controls.Add(this.work_panel);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.menuStrip1);
