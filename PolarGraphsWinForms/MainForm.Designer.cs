@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.FunctionList_toolStripComboBox = new System.Windows.Forms.ToolStripComboBox();
             this.work_panel = new System.Windows.Forms.Panel();
@@ -119,6 +120,7 @@
             this.Controls.Add(this.work_panel);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.MinimumSize = new System.Drawing.Size(1360, 550);
             this.Name = "MainForm";
