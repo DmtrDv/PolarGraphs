@@ -22,7 +22,7 @@ namespace PolarGraphsWinForms
         private List<Points> currentListPoints_ = new List<Points>();
         private int indexCurrentListPoints_;
         private Timer animationTimer_ = new Timer();
-        private int indexCyclePaintPoints_;
+        private int currentQuantityDrawnPoints_;
 
         public CreatingNewFunctionForm()
         {
@@ -70,8 +70,6 @@ namespace PolarGraphsWinForms
                     return;
                 }
 
-                
-
                 var (listPolarPoints, listCartesianPoints) = readFunction.ConvertUserFunction(startConcer, endConcer, step, function);
 
                 // Настройка декартоволго графика
@@ -104,7 +102,7 @@ namespace PolarGraphsWinForms
                     animationTimer_.Interval = (int)(111 - (int)speedAnimation_numericUpDown.Value * 11);
                     animationTimer_.Tick += AnimationBuild;
                     indexCurrentListPoints_ = 0;
-                    indexCyclePaintPoints_ = 1;
+                    currentQuantityDrawnPoints_ = 0;
                     currentListPoints_ = listCartesianPoints;
                     animationTimer_.Start();
                 }
@@ -135,16 +133,17 @@ namespace PolarGraphsWinForms
                 animationTimer_.Stop();
                 return;
             }
+            if ((111 - (int)speedAnimation_numericUpDown.Value * 11) != animationTimer_.Interval)
+            {
+                animationTimer_.Interval = (int)(111 - (int)speedAnimation_numericUpDown.Value * 11);
+            }
 
             int countPointInTick = (int)pointInTick_numericUpDown.Value;
-            if (currentListPoints_.Count % countPointInTick != 0)
-            {
-                int countFullCircle = currentListPoints_.Count / countPointInTick;
-                if (indexCyclePaintPoints_ == countFullCircle)
-                {
 
-                    countPointInTick = currentListPoints_.Count - countPointInTick * countFullCircle;
-                }
+            int remainingPoints = currentListPoints_.Count - currentQuantityDrawnPoints_;
+            if (remainingPoints < countPointInTick)
+            {
+                countPointInTick = remainingPoints;
             }
 
             for (int i = 0; i < countPointInTick; i++)
@@ -153,8 +152,7 @@ namespace PolarGraphsWinForms
                 cartesianGraph_chart.Series[0].Points.AddXY(point.coordinateX, point.coordinateY);
                 indexCurrentListPoints_++;
             }
-
-            indexCyclePaintPoints_++;
+            currentQuantityDrawnPoints_ += countPointInTick;
         }
         private void addons_button_Click(object sender, EventArgs e)
         {

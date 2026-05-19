@@ -22,7 +22,7 @@ namespace PolarGraphsWinForms
             (new PolarFunction { Id = 3, Name = "Листочек", Function = "(1 + sin(9*fi))*(1 + sin(fi))*(1 + 0.03*sin(9*5*fi))*(1 + 0.04*sin(9*33*fi))", Step = 0.1, StartCorner = 0, EndCorner = 360}),
             //(new ListPolarFunction { Id = 4, Name = "Парабола", Function = "sin(fi)/Pow(cos(fi), 2)" }),
             (new PolarFunction {Id = 4, Name = "Сердце", Function = "2-2*sin(fi)+sin(fi)*sqrt(abs(cos(fi)))/(sin(fi)+1.4)", Step = 0.1, StartCorner = 0, EndCorner = 360}),
-            (new PolarFunction {Id = 5, Name = "Наверно бабочка", Function = "Abs((1.5*Sin(fi)) + (0.8*Sin(2*fi)) + (0.6*Sin(3*fi)))*(1 + (0.3*Cos(5*fi)))", Step = 10, StartCorner = 0, EndCorner = 360})};
+            (new PolarFunction {Id = 5, Name = "Бабочка", Function = "Abs((1.5*Sin(fi)) + (0.8*Sin(2*fi)) + (0.6*Sin(3*fi)))*(1 + (0.3*Cos(5*fi)))", Step = 3, StartCorner = 0, EndCorner = 360})};
 
         PolarFunction func;
         public MainForm()
