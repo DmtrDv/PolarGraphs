@@ -169,5 +169,11 @@ namespace PolarGraphsWinForms
             InformationNote informationNote = new InformationNote();
             informationNote.Show();
         }
+
+        private void Settings_ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SettingsForm settingsForm = new SettingsForm();
+            settingsForm.Show();
+        }
     }
 }
