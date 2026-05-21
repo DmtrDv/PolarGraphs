@@ -163,5 +163,11 @@ namespace PolarGraphsWinForms
                 }
             }
         }
+
+        private void InfoNote_toolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            InformationNote informationNote = new InformationNote();
+            informationNote.Show();
+        }
     }
 }

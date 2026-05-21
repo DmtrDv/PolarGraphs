@@ -35,7 +35,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.exportIn_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.InfoNote_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.настройкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -77,7 +77,7 @@
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem1,
-            this.toolStripMenuItem2,
+            this.InfoNote_toolStripMenuItem,
             this.настройкиToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -100,11 +100,12 @@
             this.exportIn_ToolStripMenuItem.Text = "Экспорт в";
             this.exportIn_ToolStripMenuItem.Click += new System.EventHandler(this.exportIn_ToolStripMenuItem_Click);
             // 
-            // toolStripMenuItem2
+            // InfoNote_toolStripMenuItem
             // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(81, 24);
-            this.toolStripMenuItem2.Text = "Справка";
+            this.InfoNote_toolStripMenuItem.Name = "InfoNote_toolStripMenuItem";
+            this.InfoNote_toolStripMenuItem.Size = new System.Drawing.Size(81, 24);
+            this.InfoNote_toolStripMenuItem.Text = "Справка";
+            this.InfoNote_toolStripMenuItem.Click += new System.EventHandler(this.InfoNote_toolStripMenuItem_Click);
             // 
             // настройкиToolStripMenuItem
             // 
@@ -143,7 +144,7 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem exportIn_ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem InfoNote_toolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem настройкиToolStripMenuItem;
     }
 }
