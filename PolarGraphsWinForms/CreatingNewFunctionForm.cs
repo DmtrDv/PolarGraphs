@@ -29,6 +29,7 @@ namespace PolarGraphsWinForms
             InitializeComponent();
             infoRightInput_toolTip.Draw += infoRightInput_toolTip_Draw;
             infoRightInput_toolTip.Popup += infoRightInput_toolTip_Popup;
+            ThemeMode.Apply(this);
         }
 
         public CreatingNewFunctionForm(PolarFunction func)
@@ -42,6 +43,7 @@ namespace PolarGraphsWinForms
 
             infoRightInput_toolTip.Draw += infoRightInput_toolTip_Draw;
             infoRightInput_toolTip.Popup += infoRightInput_toolTip_Popup;
+            ThemeMode.Apply(this);
         }
         ReadUserFunction readFunction = new ReadUserFunction();
         private void build_button_Click(object sender, EventArgs e)

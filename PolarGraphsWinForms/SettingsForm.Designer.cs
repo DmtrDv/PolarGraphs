@@ -57,6 +57,7 @@
             this.DarkMode_checkBox.TabIndex = 4;
             this.DarkMode_checkBox.Text = "Тёмная тема";
             this.DarkMode_checkBox.UseVisualStyleBackColor = true;
+            this.DarkMode_checkBox.CheckedChanged += new System.EventHandler(this.DarkMode_checkBox_CheckedChanged);
             // 
             // SettingsForm
             // 

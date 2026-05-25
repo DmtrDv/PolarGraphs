@@ -32,8 +32,9 @@ namespace PolarGraphsWinForms
 
             for (int i = 0; i < list.Count; i++)
             {
-                FunctionList_toolStripComboBox.Items.Add(list[i].Name);
+                FunctionList_ComboBox.Items.Add(list[i].Name);
             }
+            ThemeMode.Apply(this);
         }
         private void ShowFormInWorkArea(CreatingNewFunctionForm form)
         {
@@ -138,19 +139,6 @@ namespace PolarGraphsWinForms
                 chart.BackColor = originalBackColor;
             }
         }
-        private void FunctionList_toolStripComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string function = FunctionList_toolStripComboBox.Text;
-            
-            foreach (PolarFunction polarFunction in list)
-            {
-                if (function == polarFunction.Name)
-                {
-                    func = polarFunction;
-                    ShowFormInWorkArea(new CreatingNewFunctionForm(func));
-                }
-            }
-        }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -174,6 +162,20 @@ namespace PolarGraphsWinForms
         {
             SettingsForm settingsForm = new SettingsForm();
             settingsForm.Show();
+        }
+
+        private void FunctionList_ComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string function = FunctionList_ComboBox.Text;
+
+            foreach (PolarFunction polarFunction in list)
+            {
+                if (function == polarFunction.Name)
+                {
+                    func = polarFunction;
+                    ShowFormInWorkArea(new CreatingNewFunctionForm(func));
+                }
+            }
         }
     }
 }
