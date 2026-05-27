@@ -34,7 +34,7 @@ namespace PolarGraphsWinForms
         public CreatingNewFunctionForm(PolarFunction func)
         {
             InitializeComponent();
-            function_textBox.Text = func.Function;
+            function_richTextBox.Text = func.Function;
             startСorner_numericUpDown.Value = (decimal)func.StartCorner;
             endСorner_numericUpDown.Value = (decimal)func.EndCorner;
             step_numericUpDown.Value = (decimal)func.Step;
@@ -52,7 +52,7 @@ namespace PolarGraphsWinForms
                 // polarGraph_chart.Series[0].Points.Clear();
                 cartesianGraph_chart.Series[0].Points.Clear();
 
-                string function = function_textBox.Text;
+                string function = function_richTextBox.Text;
                 double startConcer = (double)startСorner_numericUpDown.Value;
                 double endConcer = (double)endСorner_numericUpDown.Value;
                 double step = (double)step_numericUpDown.Value;

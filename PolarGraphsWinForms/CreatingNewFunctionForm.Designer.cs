@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CreatingNewFunctionForm));
             this.cartesianGraph_chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.parameters_groupBox = new System.Windows.Forms.GroupBox();
@@ -40,7 +40,6 @@
             this.Step_label = new System.Windows.Forms.Label();
             this.EndСorner_label = new System.Windows.Forms.Label();
             this.StartСorner_label = new System.Windows.Forms.Label();
-            this.function_textBox = new System.Windows.Forms.TextBox();
             this.Input_label = new System.Windows.Forms.Label();
             this.Info_label = new System.Windows.Forms.Label();
             this.infoRightInput_toolTip = new System.Windows.Forms.ToolTip(this.components);
@@ -53,6 +52,7 @@
             this.speedAnimation_label = new System.Windows.Forms.Label();
             this.speedAnimation_numericUpDown = new System.Windows.Forms.NumericUpDown();
             this.animation_checkBox = new System.Windows.Forms.CheckBox();
+            this.function_richTextBox = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.cartesianGraph_chart)).BeginInit();
             this.parameters_groupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.step_numericUpDown)).BeginInit();
@@ -72,17 +72,17 @@
             this.cartesianGraph_chart.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea1.Name = "ChartArea1";
-            this.cartesianGraph_chart.ChartAreas.Add(chartArea1);
+            chartArea2.Name = "ChartArea1";
+            this.cartesianGraph_chart.ChartAreas.Add(chartArea2);
             this.cartesianGraph_chart.Location = new System.Drawing.Point(8, 6);
             this.cartesianGraph_chart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cartesianGraph_chart.Name = "cartesianGraph_chart";
             this.cartesianGraph_chart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Berry;
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            series1.Name = "Series1";
-            this.cartesianGraph_chart.Series.Add(series1);
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            series2.Name = "Series1";
+            this.cartesianGraph_chart.Series.Add(series2);
             this.cartesianGraph_chart.Size = new System.Drawing.Size(781, 560);
             this.cartesianGraph_chart.TabIndex = 10;
             // 
@@ -206,18 +206,6 @@
             this.StartСorner_label.TabIndex = 22;
             this.StartСorner_label.Text = "Начальный угол:";
             // 
-            // function_textBox
-            // 
-            this.function_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.function_textBox.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.function_textBox.Location = new System.Drawing.Point(6, 58);
-            this.function_textBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.function_textBox.Multiline = true;
-            this.function_textBox.Name = "function_textBox";
-            this.function_textBox.Size = new System.Drawing.Size(498, 78);
-            this.function_textBox.TabIndex = 19;
-            // 
             // Input_label
             // 
             this.Input_label.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -294,8 +282,8 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.function_richTextBox);
             this.splitContainer1.Panel2.Controls.Add(this.animation_groupBox);
-            this.splitContainer1.Panel2.Controls.Add(this.function_textBox);
             this.splitContainer1.Panel2.Controls.Add(this.parameters_groupBox);
             this.splitContainer1.Panel2.Controls.Add(this.addons_button);
             this.splitContainer1.Panel2.Controls.Add(this.build_button);
@@ -392,6 +380,15 @@
             this.animation_checkBox.Text = "Анимация";
             this.animation_checkBox.UseVisualStyleBackColor = true;
             // 
+            // function_richTextBox
+            // 
+            this.function_richTextBox.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.function_richTextBox.Location = new System.Drawing.Point(6, 58);
+            this.function_richTextBox.Name = "function_richTextBox";
+            this.function_richTextBox.Size = new System.Drawing.Size(498, 78);
+            this.function_richTextBox.TabIndex = 26;
+            this.function_richTextBox.Text = "";
+            // 
             // CreatingNewFunctionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -425,7 +422,6 @@
         #endregion
         internal System.Windows.Forms.DataVisualization.Charting.Chart cartesianGraph_chart;
         private System.Windows.Forms.GroupBox parameters_groupBox;
-        public System.Windows.Forms.TextBox function_textBox;
         private System.Windows.Forms.Label Input_label;
         private System.Windows.Forms.Label Info_label;
         private System.Windows.Forms.ToolTip infoRightInput_toolTip;
@@ -444,5 +440,6 @@
         private System.Windows.Forms.NumericUpDown speedAnimation_numericUpDown;
         private System.Windows.Forms.NumericUpDown pointInTick_numericUpDown;
         private System.Windows.Forms.Label pointInTick_label;
+        private System.Windows.Forms.RichTextBox function_richTextBox;
     }
 }
