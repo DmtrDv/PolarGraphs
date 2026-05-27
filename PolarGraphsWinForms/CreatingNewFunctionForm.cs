@@ -229,5 +229,15 @@ namespace PolarGraphsWinForms
             }
             return (minX-0.25, minY-0.25);
         }
+
+        private void speed_trackBar_Scroll(object sender, EventArgs e)
+        {
+            speedAnimation_numericUpDown.Value = speed_trackBar.Value;
+        }
+
+        private void speedAnimation_numericUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            speed_trackBar.Value = (int)speedAnimation_numericUpDown.Value;
+        }
     }
 }
