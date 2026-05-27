@@ -29,35 +29,44 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.main_toolStrip = new System.Windows.Forms.ToolStrip();
             this.FunctionList_toolStripComboBox = new System.Windows.Forms.ToolStripComboBox();
             this.work_panel = new System.Windows.Forms.Panel();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.exportIn_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.InfoNote_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.настройкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStrip1.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
+            this.Settings_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.main_toolStrip.SuspendLayout();
+            this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
-            // toolStrip1
+            // main_toolStrip
             // 
-            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.main_toolStrip.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.main_toolStrip.AutoSize = false;
+            this.main_toolStrip.BackColor = System.Drawing.SystemColors.Control;
+            this.main_toolStrip.Dock = System.Windows.Forms.DockStyle.None;
+            this.main_toolStrip.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.main_toolStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.main_toolStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.main_toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.FunctionList_toolStripComboBox});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 28);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1342, 28);
-            this.toolStrip1.TabIndex = 0;
-            this.toolStrip1.Text = "toolStrip1";
+            this.main_toolStrip.Location = new System.Drawing.Point(16, 30);
+            this.main_toolStrip.Name = "main_toolStrip";
+            this.main_toolStrip.Size = new System.Drawing.Size(1326, 32);
+            this.main_toolStrip.TabIndex = 0;
+            this.main_toolStrip.Text = "toolStrip1";
             // 
             // FunctionList_toolStripComboBox
             // 
             this.FunctionList_toolStripComboBox.AccessibleName = "";
-            this.FunctionList_toolStripComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Standard;
+            this.FunctionList_toolStripComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.FunctionList_toolStripComboBox.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.FunctionList_toolStripComboBox.Name = "FunctionList_toolStripComboBox";
-            this.FunctionList_toolStripComboBox.Size = new System.Drawing.Size(155, 28);
+            this.FunctionList_toolStripComboBox.Size = new System.Drawing.Size(155, 32);
+            this.FunctionList_toolStripComboBox.Sorted = true;
             this.FunctionList_toolStripComboBox.SelectedIndexChanged += new System.EventHandler(this.FunctionList_toolStripComboBox_SelectedIndexChanged);
             // 
             // work_panel
@@ -65,86 +74,93 @@
             this.work_panel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.work_panel.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.work_panel.BackColor = System.Drawing.SystemColors.ControlLight;
             this.work_panel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.work_panel.Location = new System.Drawing.Point(0, 71);
             this.work_panel.Name = "work_panel";
             this.work_panel.Size = new System.Drawing.Size(1342, 579);
             this.work_panel.TabIndex = 1;
             // 
-            // menuStrip1
+            // menuStrip
             // 
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuStrip.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.menuStrip.AutoSize = false;
+            this.menuStrip.BackColor = System.Drawing.SystemColors.Control;
+            this.menuStrip.Dock = System.Windows.Forms.DockStyle.None;
+            this.menuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem1,
             this.InfoNote_toolStripMenuItem,
-            this.настройкиToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1342, 28);
-            this.menuStrip1.TabIndex = 2;
-            this.menuStrip1.Text = "menuStrip1";
+            this.Settings_ToolStripMenuItem});
+            this.menuStrip.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip.Name = "menuStrip";
+            this.menuStrip.Size = new System.Drawing.Size(1342, 30);
+            this.menuStrip.TabIndex = 2;
+            this.menuStrip.Text = "menuStrip1";
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.exportIn_ToolStripMenuItem});
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(59, 24);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(59, 26);
             this.toolStripMenuItem1.Text = "Файл";
             // 
             // exportIn_ToolStripMenuItem
             // 
             this.exportIn_ToolStripMenuItem.Name = "exportIn_ToolStripMenuItem";
-            this.exportIn_ToolStripMenuItem.Size = new System.Drawing.Size(160, 26);
+            this.exportIn_ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.exportIn_ToolStripMenuItem.Text = "Экспорт в";
             this.exportIn_ToolStripMenuItem.Click += new System.EventHandler(this.exportIn_ToolStripMenuItem_Click);
             // 
             // InfoNote_toolStripMenuItem
             // 
             this.InfoNote_toolStripMenuItem.Name = "InfoNote_toolStripMenuItem";
-            this.InfoNote_toolStripMenuItem.Size = new System.Drawing.Size(81, 24);
+            this.InfoNote_toolStripMenuItem.Size = new System.Drawing.Size(81, 26);
             this.InfoNote_toolStripMenuItem.Text = "Справка";
             this.InfoNote_toolStripMenuItem.Click += new System.EventHandler(this.InfoNote_toolStripMenuItem_Click);
             // 
-            // настройкиToolStripMenuItem
+            // Settings_ToolStripMenuItem
             // 
-            this.настройкиToolStripMenuItem.Name = "настройкиToolStripMenuItem";
-            this.настройкиToolStripMenuItem.Size = new System.Drawing.Size(98, 24);
-            this.настройкиToolStripMenuItem.Text = "Настройки";
+            this.Settings_ToolStripMenuItem.Name = "Settings_ToolStripMenuItem";
+            this.Settings_ToolStripMenuItem.Size = new System.Drawing.Size(98, 26);
+            this.Settings_ToolStripMenuItem.Text = "Настройки";
+            this.Settings_ToolStripMenuItem.Click += new System.EventHandler(this.Settings_ToolStripMenuItem_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1342, 650);
             this.Controls.Add(this.work_panel);
-            this.Controls.Add(this.toolStrip1);
-            this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.main_toolStrip);
+            this.Controls.Add(this.menuStrip);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MainMenuStrip = this.menuStrip1;
+            this.MainMenuStrip = this.menuStrip;
             this.MinimumSize = new System.Drawing.Size(1360, 550);
             this.Name = "MainForm";
             this.Text = "Графики";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.main_toolStrip.ResumeLayout(false);
+            this.main_toolStrip.PerformLayout();
+            this.menuStrip.ResumeLayout(false);
+            this.menuStrip.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStrip main_toolStrip;
         private System.Windows.Forms.ToolStripComboBox FunctionList_toolStripComboBox;
         private System.Windows.Forms.Panel work_panel;
-        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.MenuStrip menuStrip;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem exportIn_ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem InfoNote_toolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem настройкиToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem Settings_ToolStripMenuItem;
     }
 }

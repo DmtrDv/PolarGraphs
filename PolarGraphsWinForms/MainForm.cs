@@ -34,6 +34,7 @@ namespace PolarGraphsWinForms
             {
                 FunctionList_toolStripComboBox.Items.Add(list[i].Name);
             }
+            ThemeMode.Apply(this);
         }
         private void ShowFormInWorkArea(CreatingNewFunctionForm form)
         {
@@ -165,6 +166,12 @@ namespace PolarGraphsWinForms
         {
             InformationNote informationNote = new InformationNote();
             informationNote.Show();
+        }
+
+        private void Settings_ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SettingsForm settingsForm = new SettingsForm();
+            settingsForm.Show();
         }
     }
 }

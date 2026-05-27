@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea12 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series12 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CreatingNewFunctionForm));
             this.cartesianGraph_chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.parameters_groupBox = new System.Windows.Forms.GroupBox();
@@ -76,17 +76,17 @@
             this.cartesianGraph_chart.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea12.Name = "ChartArea1";
-            this.cartesianGraph_chart.ChartAreas.Add(chartArea12);
+            chartArea1.Name = "ChartArea1";
+            this.cartesianGraph_chart.ChartAreas.Add(chartArea1);
             this.cartesianGraph_chart.Location = new System.Drawing.Point(8, 6);
             this.cartesianGraph_chart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cartesianGraph_chart.Name = "cartesianGraph_chart";
             this.cartesianGraph_chart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Berry;
-            series12.ChartArea = "ChartArea1";
-            series12.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series12.Color = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            series12.Name = "Series1";
-            this.cartesianGraph_chart.Series.Add(series12);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            series1.Name = "Series1";
+            this.cartesianGraph_chart.Series.Add(series1);
             this.cartesianGraph_chart.Size = new System.Drawing.Size(781, 560);
             this.cartesianGraph_chart.TabIndex = 10;
             // 
@@ -412,6 +412,7 @@
             this.animation_checkBox.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.animation_checkBox.Location = new System.Drawing.Point(6, 33);
             this.animation_checkBox.Name = "animation_checkBox";
+            this.animation_checkBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.animation_checkBox.Size = new System.Drawing.Size(134, 30);
             this.animation_checkBox.TabIndex = 24;
             this.animation_checkBox.Text = "Анимация";
