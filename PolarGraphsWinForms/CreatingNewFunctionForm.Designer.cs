@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea12 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series12 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CreatingNewFunctionForm));
             this.cartesianGraph_chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.parameters_groupBox = new System.Windows.Forms.GroupBox();
@@ -40,18 +40,20 @@
             this.Step_label = new System.Windows.Forms.Label();
             this.EndСorner_label = new System.Windows.Forms.Label();
             this.StartСorner_label = new System.Windows.Forms.Label();
-            this.function_textBox = new System.Windows.Forms.TextBox();
             this.Input_label = new System.Windows.Forms.Label();
             this.Info_label = new System.Windows.Forms.Label();
             this.infoRightInput_toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.build_button = new System.Windows.Forms.Button();
             this.addons_button = new System.Windows.Forms.Button();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.function_richTextBox = new System.Windows.Forms.RichTextBox();
             this.animation_groupBox = new System.Windows.Forms.GroupBox();
+            this.speedGroup_groupBox = new System.Windows.Forms.GroupBox();
+            this.speedAnimation_numericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.speed_trackBar = new System.Windows.Forms.TrackBar();
             this.pointInTick_numericUpDown = new System.Windows.Forms.NumericUpDown();
             this.pointInTick_label = new System.Windows.Forms.Label();
             this.speedAnimation_label = new System.Windows.Forms.Label();
-            this.speedAnimation_numericUpDown = new System.Windows.Forms.NumericUpDown();
             this.animation_checkBox = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.cartesianGraph_chart)).BeginInit();
             this.parameters_groupBox.SuspendLayout();
@@ -63,8 +65,10 @@
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.animation_groupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pointInTick_numericUpDown)).BeginInit();
+            this.speedGroup_groupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.speedAnimation_numericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.speed_trackBar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pointInTick_numericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // cartesianGraph_chart
@@ -72,24 +76,22 @@
             this.cartesianGraph_chart.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea1.Name = "ChartArea1";
-            this.cartesianGraph_chart.ChartAreas.Add(chartArea1);
+            chartArea12.Name = "ChartArea1";
+            this.cartesianGraph_chart.ChartAreas.Add(chartArea12);
             this.cartesianGraph_chart.Location = new System.Drawing.Point(8, 6);
             this.cartesianGraph_chart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cartesianGraph_chart.Name = "cartesianGraph_chart";
             this.cartesianGraph_chart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Berry;
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            series1.Name = "Series1";
-            this.cartesianGraph_chart.Series.Add(series1);
+            series12.ChartArea = "ChartArea1";
+            series12.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series12.Color = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            series12.Name = "Series1";
+            this.cartesianGraph_chart.Series.Add(series12);
             this.cartesianGraph_chart.Size = new System.Drawing.Size(781, 560);
             this.cartesianGraph_chart.TabIndex = 10;
             // 
             // parameters_groupBox
             // 
-            this.parameters_groupBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.parameters_groupBox.BackColor = System.Drawing.SystemColors.Control;
             this.parameters_groupBox.Controls.Add(this.step_numericUpDown);
             this.parameters_groupBox.Controls.Add(this.endСorner_numericUpDown);
@@ -206,18 +208,6 @@
             this.StartСorner_label.TabIndex = 22;
             this.StartСorner_label.Text = "Начальный угол:";
             // 
-            // function_textBox
-            // 
-            this.function_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.function_textBox.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.function_textBox.Location = new System.Drawing.Point(6, 58);
-            this.function_textBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.function_textBox.Multiline = true;
-            this.function_textBox.Name = "function_textBox";
-            this.function_textBox.Size = new System.Drawing.Size(498, 78);
-            this.function_textBox.TabIndex = 19;
-            // 
             // Input_label
             // 
             this.Input_label.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -260,10 +250,10 @@
             // 
             this.build_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.build_button.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.build_button.Location = new System.Drawing.Point(327, 514);
+            this.build_button.Location = new System.Drawing.Point(327, 506);
             this.build_button.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.build_button.Name = "build_button";
-            this.build_button.Size = new System.Drawing.Size(176, 50);
+            this.build_button.Size = new System.Drawing.Size(176, 61);
             this.build_button.TabIndex = 22;
             this.build_button.Text = "Построить";
             this.build_button.UseVisualStyleBackColor = true;
@@ -273,12 +263,12 @@
             // 
             this.addons_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.addons_button.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.addons_button.Location = new System.Drawing.Point(6, 514);
+            this.addons_button.Location = new System.Drawing.Point(5, 506);
             this.addons_button.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.addons_button.Name = "addons_button";
-            this.addons_button.Size = new System.Drawing.Size(176, 50);
+            this.addons_button.Size = new System.Drawing.Size(176, 61);
             this.addons_button.TabIndex = 23;
-            this.addons_button.Text = "Надстройки";
+            this.addons_button.Text = "Настройки линии";
             this.addons_button.UseVisualStyleBackColor = true;
             this.addons_button.Click += new System.EventHandler(this.addons_button_Click);
             // 
@@ -291,75 +281,61 @@
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.Controls.Add(this.cartesianGraph_chart);
+            this.splitContainer1.Panel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.function_richTextBox);
             this.splitContainer1.Panel2.Controls.Add(this.animation_groupBox);
-            this.splitContainer1.Panel2.Controls.Add(this.function_textBox);
             this.splitContainer1.Panel2.Controls.Add(this.parameters_groupBox);
             this.splitContainer1.Panel2.Controls.Add(this.addons_button);
             this.splitContainer1.Panel2.Controls.Add(this.build_button);
             this.splitContainer1.Panel2.Controls.Add(this.Input_label);
             this.splitContainer1.Panel2.Controls.Add(this.Info_label);
+            this.splitContainer1.Panel2.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.splitContainer1.Size = new System.Drawing.Size(1302, 572);
             this.splitContainer1.SplitterDistance = 787;
             this.splitContainer1.TabIndex = 24;
             // 
+            // function_richTextBox
+            // 
+            this.function_richTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.function_richTextBox.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.function_richTextBox.Location = new System.Drawing.Point(5, 58);
+            this.function_richTextBox.Name = "function_richTextBox";
+            this.function_richTextBox.Size = new System.Drawing.Size(498, 78);
+            this.function_richTextBox.TabIndex = 26;
+            this.function_richTextBox.Text = "";
+            // 
             // animation_groupBox
             // 
-            this.animation_groupBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.animation_groupBox.Controls.Add(this.speedGroup_groupBox);
             this.animation_groupBox.Controls.Add(this.pointInTick_numericUpDown);
             this.animation_groupBox.Controls.Add(this.pointInTick_label);
             this.animation_groupBox.Controls.Add(this.speedAnimation_label);
-            this.animation_groupBox.Controls.Add(this.speedAnimation_numericUpDown);
             this.animation_groupBox.Controls.Add(this.animation_checkBox);
             this.animation_groupBox.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.animation_groupBox.Location = new System.Drawing.Point(5, 340);
             this.animation_groupBox.Name = "animation_groupBox";
-            this.animation_groupBox.Size = new System.Drawing.Size(344, 147);
+            this.animation_groupBox.Size = new System.Drawing.Size(382, 156);
             this.animation_groupBox.TabIndex = 25;
             this.animation_groupBox.TabStop = false;
             this.animation_groupBox.Text = "Параметры анимации";
             // 
-            // pointInTick_numericUpDown
+            // speedGroup_groupBox
             // 
-            this.pointInTick_numericUpDown.Location = new System.Drawing.Point(233, 105);
-            this.pointInTick_numericUpDown.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.pointInTick_numericUpDown.Name = "pointInTick_numericUpDown";
-            this.pointInTick_numericUpDown.Size = new System.Drawing.Size(120, 34);
-            this.pointInTick_numericUpDown.TabIndex = 28;
-            this.pointInTick_numericUpDown.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // pointInTick_label
-            // 
-            this.pointInTick_label.AutoSize = true;
-            this.pointInTick_label.Location = new System.Drawing.Point(3, 106);
-            this.pointInTick_label.Name = "pointInTick_label";
-            this.pointInTick_label.Size = new System.Drawing.Size(132, 26);
-            this.pointInTick_label.TabIndex = 27;
-            this.pointInTick_label.Text = "Точек за тик";
-            // 
-            // speedAnimation_label
-            // 
-            this.speedAnimation_label.AutoSize = true;
-            this.speedAnimation_label.Location = new System.Drawing.Point(3, 69);
-            this.speedAnimation_label.Name = "speedAnimation_label";
-            this.speedAnimation_label.Size = new System.Drawing.Size(205, 26);
-            this.speedAnimation_label.TabIndex = 26;
-            this.speedAnimation_label.Text = "Скорость анимации";
+            this.speedGroup_groupBox.Controls.Add(this.speedAnimation_numericUpDown);
+            this.speedGroup_groupBox.Controls.Add(this.speed_trackBar);
+            this.speedGroup_groupBox.Location = new System.Drawing.Point(228, 22);
+            this.speedGroup_groupBox.Name = "speedGroup_groupBox";
+            this.speedGroup_groupBox.Size = new System.Drawing.Size(145, 86);
+            this.speedGroup_groupBox.TabIndex = 30;
+            this.speedGroup_groupBox.TabStop = false;
             // 
             // speedAnimation_numericUpDown
             // 
-            this.speedAnimation_numericUpDown.Location = new System.Drawing.Point(233, 65);
+            this.speedAnimation_numericUpDown.Location = new System.Drawing.Point(12, 46);
             this.speedAnimation_numericUpDown.Maximum = new decimal(new int[] {
             10,
             0,
@@ -378,6 +354,55 @@
             0,
             0,
             0});
+            this.speedAnimation_numericUpDown.ValueChanged += new System.EventHandler(this.speedAnimation_numericUpDown_ValueChanged);
+            // 
+            // speed_trackBar
+            // 
+            this.speed_trackBar.AutoSize = false;
+            this.speed_trackBar.BackColor = System.Drawing.SystemColors.Control;
+            this.speed_trackBar.LargeChange = 1;
+            this.speed_trackBar.Location = new System.Drawing.Point(-5, 15);
+            this.speed_trackBar.Minimum = 1;
+            this.speed_trackBar.Name = "speed_trackBar";
+            this.speed_trackBar.Size = new System.Drawing.Size(153, 34);
+            this.speed_trackBar.TabIndex = 29;
+            this.speed_trackBar.Value = 1;
+            this.speed_trackBar.Scroll += new System.EventHandler(this.speed_trackBar_Scroll);
+            // 
+            // pointInTick_numericUpDown
+            // 
+            this.pointInTick_numericUpDown.Location = new System.Drawing.Point(240, 114);
+            this.pointInTick_numericUpDown.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.pointInTick_numericUpDown.Name = "pointInTick_numericUpDown";
+            this.pointInTick_numericUpDown.Size = new System.Drawing.Size(120, 34);
+            this.pointInTick_numericUpDown.TabIndex = 28;
+            this.pointInTick_numericUpDown.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // pointInTick_label
+            // 
+            this.pointInTick_label.AutoSize = true;
+            this.pointInTick_label.Location = new System.Drawing.Point(3, 115);
+            this.pointInTick_label.Name = "pointInTick_label";
+            this.pointInTick_label.Size = new System.Drawing.Size(138, 26);
+            this.pointInTick_label.TabIndex = 27;
+            this.pointInTick_label.Text = "Точек за тик:";
+            // 
+            // speedAnimation_label
+            // 
+            this.speedAnimation_label.AutoSize = true;
+            this.speedAnimation_label.Location = new System.Drawing.Point(3, 78);
+            this.speedAnimation_label.Name = "speedAnimation_label";
+            this.speedAnimation_label.Size = new System.Drawing.Size(211, 26);
+            this.speedAnimation_label.TabIndex = 26;
+            this.speedAnimation_label.Text = "Скорость анимации:";
             // 
             // animation_checkBox
             // 
@@ -416,8 +441,10 @@
             this.splitContainer1.ResumeLayout(false);
             this.animation_groupBox.ResumeLayout(false);
             this.animation_groupBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pointInTick_numericUpDown)).EndInit();
+            this.speedGroup_groupBox.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.speedAnimation_numericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.speed_trackBar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pointInTick_numericUpDown)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -425,7 +452,6 @@
         #endregion
         internal System.Windows.Forms.DataVisualization.Charting.Chart cartesianGraph_chart;
         private System.Windows.Forms.GroupBox parameters_groupBox;
-        public System.Windows.Forms.TextBox function_textBox;
         private System.Windows.Forms.Label Input_label;
         private System.Windows.Forms.Label Info_label;
         private System.Windows.Forms.ToolTip infoRightInput_toolTip;
@@ -444,5 +470,8 @@
         private System.Windows.Forms.NumericUpDown speedAnimation_numericUpDown;
         private System.Windows.Forms.NumericUpDown pointInTick_numericUpDown;
         private System.Windows.Forms.Label pointInTick_label;
+        private System.Windows.Forms.RichTextBox function_richTextBox;
+        private System.Windows.Forms.TrackBar speed_trackBar;
+        private System.Windows.Forms.GroupBox speedGroup_groupBox;
     }
 }
