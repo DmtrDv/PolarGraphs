@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea12 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series12 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CreatingNewFunctionForm));
             this.cartesianGraph_chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.parameters_groupBox = new System.Windows.Forms.GroupBox();
@@ -76,24 +76,22 @@
             this.cartesianGraph_chart.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea3.Name = "ChartArea1";
-            this.cartesianGraph_chart.ChartAreas.Add(chartArea3);
+            chartArea12.Name = "ChartArea1";
+            this.cartesianGraph_chart.ChartAreas.Add(chartArea12);
             this.cartesianGraph_chart.Location = new System.Drawing.Point(8, 6);
             this.cartesianGraph_chart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cartesianGraph_chart.Name = "cartesianGraph_chart";
             this.cartesianGraph_chart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Berry;
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series3.Color = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            series3.Name = "Series1";
-            this.cartesianGraph_chart.Series.Add(series3);
+            series12.ChartArea = "ChartArea1";
+            series12.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series12.Color = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            series12.Name = "Series1";
+            this.cartesianGraph_chart.Series.Add(series12);
             this.cartesianGraph_chart.Size = new System.Drawing.Size(781, 560);
             this.cartesianGraph_chart.TabIndex = 10;
             // 
             // parameters_groupBox
             // 
-            this.parameters_groupBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.parameters_groupBox.BackColor = System.Drawing.SystemColors.Control;
             this.parameters_groupBox.Controls.Add(this.step_numericUpDown);
             this.parameters_groupBox.Controls.Add(this.endСorner_numericUpDown);
@@ -252,10 +250,10 @@
             // 
             this.build_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.build_button.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.build_button.Location = new System.Drawing.Point(327, 514);
+            this.build_button.Location = new System.Drawing.Point(327, 506);
             this.build_button.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.build_button.Name = "build_button";
-            this.build_button.Size = new System.Drawing.Size(176, 50);
+            this.build_button.Size = new System.Drawing.Size(176, 61);
             this.build_button.TabIndex = 22;
             this.build_button.Text = "Построить";
             this.build_button.UseVisualStyleBackColor = true;
@@ -265,12 +263,12 @@
             // 
             this.addons_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.addons_button.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.addons_button.Location = new System.Drawing.Point(6, 514);
+            this.addons_button.Location = new System.Drawing.Point(5, 506);
             this.addons_button.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.addons_button.Name = "addons_button";
-            this.addons_button.Size = new System.Drawing.Size(176, 50);
+            this.addons_button.Size = new System.Drawing.Size(176, 61);
             this.addons_button.TabIndex = 23;
-            this.addons_button.Text = "Надстройки";
+            this.addons_button.Text = "Настройки линии";
             this.addons_button.UseVisualStyleBackColor = true;
             this.addons_button.Click += new System.EventHandler(this.addons_button_Click);
             // 
@@ -283,6 +281,7 @@
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.Controls.Add(this.cartesianGraph_chart);
+            this.splitContainer1.Panel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             // 
             // splitContainer1.Panel2
             // 
@@ -293,14 +292,17 @@
             this.splitContainer1.Panel2.Controls.Add(this.build_button);
             this.splitContainer1.Panel2.Controls.Add(this.Input_label);
             this.splitContainer1.Panel2.Controls.Add(this.Info_label);
+            this.splitContainer1.Panel2.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.splitContainer1.Size = new System.Drawing.Size(1302, 572);
             this.splitContainer1.SplitterDistance = 787;
             this.splitContainer1.TabIndex = 24;
             // 
             // function_richTextBox
             // 
+            this.function_richTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.function_richTextBox.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.function_richTextBox.Location = new System.Drawing.Point(6, 58);
+            this.function_richTextBox.Location = new System.Drawing.Point(5, 58);
             this.function_richTextBox.Name = "function_richTextBox";
             this.function_richTextBox.Size = new System.Drawing.Size(498, 78);
             this.function_richTextBox.TabIndex = 26;
@@ -308,8 +310,6 @@
             // 
             // animation_groupBox
             // 
-            this.animation_groupBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.animation_groupBox.Controls.Add(this.speedGroup_groupBox);
             this.animation_groupBox.Controls.Add(this.pointInTick_numericUpDown);
             this.animation_groupBox.Controls.Add(this.pointInTick_label);
