@@ -28,6 +28,7 @@ namespace PolarGraphsWinForms
         public MainForm()
         {
             InitializeComponent();
+            ThemeMode.RegisterChartHandler();
             ShowFormInWorkArea(new CreatingNewFunctionForm());
 
             for (int i = 0; i < list.Count; i++)
@@ -171,7 +172,7 @@ namespace PolarGraphsWinForms
         private void Settings_ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SettingsForm settingsForm = new SettingsForm();
-            settingsForm.Show();
+            settingsForm.ShowDialog();
         }
     }
 }

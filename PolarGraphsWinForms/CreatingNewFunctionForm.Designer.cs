@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CreatingNewFunctionForm));
             this.cartesianGraph_chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.parameters_groupBox = new System.Windows.Forms.GroupBox();
@@ -76,17 +76,17 @@
             this.cartesianGraph_chart.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea1.Name = "ChartArea1";
-            this.cartesianGraph_chart.ChartAreas.Add(chartArea1);
+            chartArea3.Name = "ChartArea1";
+            this.cartesianGraph_chart.ChartAreas.Add(chartArea3);
             this.cartesianGraph_chart.Location = new System.Drawing.Point(8, 6);
             this.cartesianGraph_chart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cartesianGraph_chart.Name = "cartesianGraph_chart";
             this.cartesianGraph_chart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Berry;
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            series1.Name = "Series1";
-            this.cartesianGraph_chart.Series.Add(series1);
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series3.Color = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            series3.Name = "Series1";
+            this.cartesianGraph_chart.Series.Add(series3);
             this.cartesianGraph_chart.Size = new System.Drawing.Size(781, 560);
             this.cartesianGraph_chart.TabIndex = 10;
             // 
@@ -249,6 +249,7 @@
             // build_button
             // 
             this.build_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.build_button.BackColor = System.Drawing.Color.Gainsboro;
             this.build_button.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.build_button.Location = new System.Drawing.Point(327, 506);
             this.build_button.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -256,7 +257,7 @@
             this.build_button.Size = new System.Drawing.Size(176, 61);
             this.build_button.TabIndex = 22;
             this.build_button.Text = "Построить";
-            this.build_button.UseVisualStyleBackColor = true;
+            this.build_button.UseVisualStyleBackColor = false;
             this.build_button.Click += new System.EventHandler(this.build_button_Click);
             // 
             // addons_button
@@ -301,6 +302,7 @@
             // 
             this.function_richTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.function_richTextBox.EnableAutoDragDrop = true;
             this.function_richTextBox.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.function_richTextBox.Location = new System.Drawing.Point(5, 58);
             this.function_richTextBox.Name = "function_richTextBox";

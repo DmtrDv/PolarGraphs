@@ -10,168 +10,14 @@ using System.Windows.Forms.DataVisualization.Charting;
 namespace PolarGraphsLib
 {
     public class ThemeMode
-    {
-
-        public static Color LightBack = SystemColors.Control;
-        public static Color LightFore = SystemColors.ControlText;
-
-        // Текущие цвета
-        public static Color CurrentBack = LightBack;
-        public static Color CurrentFore = LightFore;
-
-        // Типы контролов, которые не трогаем
-        private static readonly HashSet<Type> SkipTypes = new HashSet<Type>
-        {
-            typeof(PictureBox),
-            // typeof(Chart)  // если нужно, раскомментируй и добавь using
-        };
-
-        private static Dictionary<Control, (Color Back, Color Fore)> OriginalColors = new Dictionary<Control, (Color Back, Color Fore)> ();
-
-        public static bool IsDarkMode { get; private set; }
-
-        public static void SetLight()
-        {
-            IsDarkMode = false;
-            // Восстанавливаем исходные цвета из словаря, а не из глобальных LightBack/LightFore
-            RestoreOriginalColors();
-        }
-
-        public static void SetDark(double darkFactor = 0.75, double lightFactor = 0.9)
-        {
-            IsDarkMode = true;
-            // Перед затемнением в первый раз — запомнить текущие цвета всех открытых форм
-            if (OriginalColors.Count == 0)
-                SaveOriginalColors();
-
-            CurrentBack = Darken(LightBack, darkFactor);
-            CurrentFore = Lighten(LightFore, lightFactor);
-            UpdateAllOpenForms();
-        }
-
-        // Применить тему к форме (вызывается из конструктора)
-        public static void Apply(Form form)
-        {
-            // Если тёмная тема уже активна — принудительно применяем тёмные цвета к новой форме
-            if (IsDarkMode)
-            {
-                ApplyToControlDark(form);
-            }
-            // Если светлая — оставляем как есть (изначальные цвета из дизайнера)
-        }
-
-        // Сохранить исходные цвета всех контролов на всех открытых формах
-        private static void SaveOriginalColors()
-        {
-            foreach (Form f in Application.OpenForms)
-                SaveControlColors(f);
-        }
-
-        private static void SaveControlColors(Control ctrl)
-        {
-            if (!OriginalColors.ContainsKey(ctrl))
-                OriginalColors[ctrl] = (ctrl.BackColor, ctrl.ForeColor);
-
-            foreach (Control child in ctrl.Controls)
-                SaveControlColors(child);
-        }
-
-        // Восстановить исходные цвета всем открытым формам
-        private static void RestoreOriginalColors()
-        {
-            foreach (Form f in Application.OpenForms)
-                RestoreControlColors(f);
-        }
-
-        private static void RestoreControlColors(Control ctrl)
-        {
-            if (OriginalColors.TryGetValue(ctrl, out var colors))
-            {
-                ctrl.BackColor = colors.Back;
-                ctrl.ForeColor = colors.Fore;
-            }
-            foreach (Control child in ctrl.Controls)
-                RestoreControlColors(child);
-        }
-
-        // Принудительное применение тёмной темы к новой форме
-        private static void ApplyToControlDark(Control ctrl)
-        {
-            // Сохраняем исходные цвета для новой формы перед заменой
-            SaveControlColors(ctrl);
-            // Теперь применяем тёмные вычисленные цвета
-            ctrl.BackColor = Darken(LightBack, 0.75); // или используй CurrentBack, но лучше вычислять из исходного
-            ctrl.ForeColor = Lighten(LightFore, 0.9);
-            foreach (Control child in ctrl.Controls)
-                ApplyToControlDark(child);
-        }
-
-        // Обновить все открытые формы
-        private static void UpdateAllOpenForms()
-        {
-            foreach (Form f in Application.OpenForms)
-            {
-                ApplyToControl(f);
-            }
-        }
-
-        // Рекурсивно задаём цвета, пропуская ненужные контролы
-        private static void ApplyToControl(Control ctrl)
-        {
-           /* if (SkipTypes.Contains(ctrl.GetType()))
-                return;*/
-
-            ctrl.BackColor = CurrentBack;
-            ctrl.ForeColor = CurrentFore;
-
-            foreach (Control child in ctrl.Controls)
-                ApplyToControl(child);
-        }
-
-        // Вспомогательные методы для цвета
-        private static Color Darken(Color c, double factor)
-        {
-            factor = Math.Max(0, Math.Min(1, factor));
-            return Color.FromArgb(
-                (int)(c.R * (1 - factor)),
-                (int)(c.G * (1 - factor)),
-                (int)(c.B * (1 - factor)));
-        }
-
-        private static Color Lighten(Color c, double factor)
-        {
-            factor = Math.Max(0, Math.Min(1, factor));
-            return Color.FromArgb(
-                (int)(c.R + (255 - c.R) * factor),
-                (int)(c.G + (255 - c.G) * factor),
-                (int)(c.B + (255 - c.B) * factor));
-        }
-
-
-
-
-
-
-
-
-        /*
+    { 
         public static Color DefaultLightBack = SystemColors.Control;
         public static Color DefaultLightFore = SystemColors.ControlText;
 
-        // Типы контролов, которые не обрабатываются совсем
-        public static readonly HashSet<Type> SkipTypes = new HashSet<Type>
-    {
-        typeof(PictureBox),
-        // typeof(Chart) – для него мы сделаем кастомный обработчик
-    };
-
         // Словарь: тип контрола -> Action(Control, bool isDark)
-        public static readonly Dictionary<Type, Action<Control, bool>> CustomHandlers =
-            new Dictionary<Type, Action<Control, bool>>();
-
+        public static readonly Dictionary<Type, Action<Control, bool>> CustomHandlers = new Dictionary<Type, Action<Control, bool>>();
         // Хранилище исходных (светлых) цветов для каждого контрола
-        private static readonly Dictionary<Control, (Color Back, Color Fore)> OriginalColors =
-            new Dictionary<Control, (Color Back, Color Fore)>();
+        private static readonly Dictionary<Control, (Color Back, Color Fore)> OriginalColors = new Dictionary<Control, (Color Back, Color Fore)>();
 
         // Параметры затемнения/осветления (задаются при SetDark)
         private static double _darkFactor = 0.75;
@@ -179,21 +25,15 @@ namespace PolarGraphsLib
 
         public static bool IsDarkMode { get; private set; } = false;
 
-        // =================== Публичные методы ===================
-
-        /// <summary>Переключиться на светлую тему (восстанавливает исходные цвета).</summary>
+        // Переключиться на светлую тему (восстанавливает исходные цвета)
         public static void SetLight()
         {
             IsDarkMode = false;
             RestoreOriginalColors();
-            OriginalColors.Clear();   // для следующего SetDark сохраним заново
+            OriginalColors.Clear();
         }
 
-        /// <summary>
-        /// Переключиться на тёмную тему.
-        /// </summary>
-        /// <param name="darkFactor">Коэффициент затемнения фона (0 – без изменений, 1 – чёрный).</param>
-        /// <param name="lightFactor">Коэффициент осветления текста (0 – без изменений, 1 – белый).</param>
+        // Переключиться на тёмную тему
         public static void SetDark(double darkFactor = 0.75, double lightFactor = 0.9)
         {
             _darkFactor = Math.Max(0, Math.Min(1, darkFactor));
@@ -206,10 +46,6 @@ namespace PolarGraphsLib
             IsDarkMode = true;
             UpdateAllOpenForms(isDark: true);
         }
-
-        /// <summary>
-        /// Применить тему к новой форме (вызывать в конструкторе после InitializeComponent()).
-        /// </summary>
         public static void Apply(Form form)
         {
             if (form == null) return;
@@ -221,23 +57,14 @@ namespace PolarGraphsLib
                 // Применяем тёмную тему
                 ApplyToControl(form, isDark: true);
             }
-            // Если светлая тема – ничего не делаем, форма уже отображает свои дизайнерские цвета
         }
-
-        /// <summary>
-        /// Зарегистрировать кастомный обработчик для определённого типа контрола.
-        /// </summary>
-        /// <param name="controlType">Тип контрола (например, typeof(Chart)).</param>
-        /// <param name="handler">Метод, принимающий Control и флаг isDark.</param>
+        
         public static void RegisterCustomHandler(Type controlType, Action<Control, bool> handler)
         {
             if (controlType == null || handler == null) return;
             CustomHandlers[controlType] = handler;
         }
 
-        /// <summary>
-        /// Пример готового обработчика для Chart. Вызовите этот метод при старте приложения.
-        /// </summary>
         public static void RegisterChartHandler()
         {
             RegisterCustomHandler(typeof(Chart), (ctrl, isDark) =>
@@ -294,8 +121,6 @@ namespace PolarGraphsLib
             });
         }
 
-        // =================== Внутренние методы ===================
-
         // Обходит все открытые формы и применяет текущую тему (isDark = true)
         private static void UpdateAllOpenForms(bool isDark)
         {
@@ -330,11 +155,19 @@ namespace PolarGraphsLib
         // Рекурсивно восстанавливает цвет контрола из словаря, если он там есть
         private static void RestoreControlColors(Control ctrl)
         {
-            if (OriginalColors.TryGetValue(ctrl, out var colors))
+            Type t = ctrl.GetType();
+
+            // Если есть кастомный обработчик, вызываем его для светлой темы (false)
+            if (CustomHandlers.TryGetValue(t, out var handler))
+            {
+                handler(ctrl, false);
+            }
+            else if (OriginalColors.TryGetValue(ctrl, out var colors))
             {
                 ctrl.BackColor = colors.Back;
                 ctrl.ForeColor = colors.Fore;
             }
+
             foreach (Control child in ctrl.Controls)
                 RestoreControlColors(child);
         }
@@ -349,7 +182,7 @@ namespace PolarGraphsLib
             {
                 handler(ctrl, isDark);
             }
-            else if (!SkipTypes.Contains(t))
+            else 
             {
                 if (isDark)
                 {
@@ -360,15 +193,12 @@ namespace PolarGraphsLib
                     ctrl.BackColor = Darken(origBack, _darkFactor);
                     ctrl.ForeColor = Lighten(origFore, _lightFactor);
                 }
-                // Светлая тема восстанавливается не здесь, а через RestoreOriginalColors
             }
 
             // Рекурсивный обход дочерних контролов
             foreach (Control child in ctrl.Controls)
                 ApplyToControl(child, isDark);
         }
-
-        // =================== Утилиты для работы с цветом ===================
 
         private static Color Darken(Color c, double factor)
         {
@@ -386,6 +216,6 @@ namespace PolarGraphsLib
                 (int)(c.R + (255 - c.R) * factor),
                 (int)(c.G + (255 - c.G) * factor),
                 (int)(c.B + (255 - c.B) * factor));
-        }*/
+        }
     }
 }
