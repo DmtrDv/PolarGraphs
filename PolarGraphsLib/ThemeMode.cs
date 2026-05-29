@@ -10,212 +10,200 @@ using System.Windows.Forms.DataVisualization.Charting;
 namespace PolarGraphsLib
 {
     public class ThemeMode
-    { 
-        public static Color DefaultLightBack = SystemColors.Control;
-        public static Color DefaultLightFore = SystemColors.ControlText;
+    {
 
-        // Словарь: тип контрола -> Action(Control, bool isDark)
-        public static readonly Dictionary<Type, Action<Control, bool>> CustomHandlers = new Dictionary<Type, Action<Control, bool>>();
-        // Хранилище исходных (светлых) цветов для каждого контрола
-        private static readonly Dictionary<Control, (Color Back, Color Fore)> OriginalColors = new Dictionary<Control, (Color Back, Color Fore)>();
 
-        // Параметры затемнения/осветления (задаются при SetDark)
+        // Стандартный светлый фон для контролов без сохранённого исходного цвета
+        public static Color DefaultBackColor { get; } = SystemColors.Control;
+
+        // Стандартный светлый текст для контролов без сохранённого исходного цвета
+        public static Color DefaultForeColor { get; } = SystemColors.ControlText;
+
         private static double _darkFactor = 0.75;
         private static double _lightFactor = 0.9;
 
-        public static bool IsDarkMode { get; private set; } = false;
+        // Включена ли тёмная тема
+        public static bool IsDarkMode { get; private set; }
 
-        // Переключиться на светлую тему (восстанавливает исходные цвета)
+        // Пользовательские обработчики для конкретных типов контролов
+        public static Dictionary<Type, Action<Control, bool>> CustomHandlers { get; } = new Dictionary<Type, Action<Control, bool>>();
+
+        // Сохранённые исходные цвета (светлая тема) для каждого контрола
+        private static readonly Dictionary<Control, (Color Back, Color Fore)> OriginalColors = new Dictionary<Control, (Color Back, Color Fore)>();
+
+        // Зарегистрировать кастомный обработчик темы для типа контрола
+        public static void RegisterCustomHandler(Type controlType, Action<Control, bool> handler)
+        {
+            if (controlType == null || handler == null)
+                return;
+            CustomHandlers[controlType] = handler;
+        }
+
+        // Зарегистрировать готовый обработчик для Chart (Windows Forms DataVisualization)
+        public static void RegisterChartHandler()
+        {
+            RegisterCustomHandler(typeof(Chart), (ctrl, isDark) =>
+            {
+                if (ctrl is Chart chart)
+                    ApplyChartTheme(chart, isDark);
+            });
+        }
+
+        // Переключиться на светлую тему и восстановить исходные цвета
         public static void SetLight()
         {
             IsDarkMode = false;
-            RestoreOriginalColors();
+            RestoreAllOpenForms();
             OriginalColors.Clear();
         }
 
-        // Переключиться на тёмную тему
         public static void SetDark(double darkFactor = 0.75, double lightFactor = 0.9)
         {
             _darkFactor = Math.Max(0, Math.Min(1, darkFactor));
             _lightFactor = Math.Max(0, Math.Min(1, lightFactor));
 
-            // Первый раз сохраняем реальные цвета всех открытых форм
             if (OriginalColors.Count == 0)
-                SaveOriginalColors();
+                SaveAllOpenForms();
 
             IsDarkMode = true;
-            UpdateAllOpenForms(isDark: true);
+            UpdateAllOpenForms();
         }
+
+        // Применить текущую тему к форме и сохранить исходные цвета
         public static void Apply(Form form)
         {
             if (form == null) return;
 
+            // При тёмной теме гарантируем, что исходные цвета формы сохранены
             if (IsDarkMode)
-            {
-                // Сохраняем её исходные цвета, если ещё не сохранены
-                SaveControlColors(form);
-                // Применяем тёмную тему
-                ApplyToControl(form, isDark: true);
-            }
-        }
-        
-        public static void RegisterCustomHandler(Type controlType, Action<Control, bool> handler)
-        {
-            if (controlType == null || handler == null) return;
-            CustomHandlers[controlType] = handler;
+                SaveControlTree(form);
+
+            ApplyToControlTree(form, IsDarkMode);
         }
 
-        public static void RegisterChartHandler()
-        {
-            RegisterCustomHandler(typeof(Chart), (ctrl, isDark) =>
-            {
-                var chart = ctrl as Chart;
-                if (chart == null) return;
 
-                if (isDark)
-                {
-                    chart.BackColor = Color.FromArgb(30, 30, 30);
-                    foreach (ChartArea area in chart.ChartAreas)
-                    {
-                        area.BackColor = Color.FromArgb(30, 30, 30);
-                        area.AxisX.LabelStyle.ForeColor = Color.LightGray;
-                        area.AxisY.LabelStyle.ForeColor = Color.LightGray;
-                        area.AxisX.TitleForeColor = Color.LightGray;
-                        area.AxisY.TitleForeColor = Color.LightGray;
-                        area.AxisX.MajorGrid.LineColor = Color.Gray;
-                        area.AxisY.MajorGrid.LineColor = Color.Gray;
-                        area.AxisX.LineColor = Color.Gray;
-                        area.AxisY.LineColor = Color.Gray;
-                    }
-                    foreach (Legend legend in chart.Legends)
-                    {
-                        legend.BackColor = Color.FromArgb(30, 30, 30);
-                        legend.ForeColor = Color.LightGray;
-                    }
-                    foreach (Title title in chart.Titles)
-                        title.ForeColor = Color.LightGray;
-                }
-                else // Светлая тема – возвращаем исходные (можно сохранить оригиналы в Tag)
-                {
-                    chart.BackColor = DefaultLightBack;
-                    foreach (ChartArea area in chart.ChartAreas)
-                    {
-                        area.BackColor = Color.White;
-                        area.AxisX.LabelStyle.ForeColor = Color.Black;
-                        area.AxisY.LabelStyle.ForeColor = Color.Black;
-                        area.AxisX.TitleForeColor = Color.Black;
-                        area.AxisY.TitleForeColor = Color.Black;
-                        area.AxisX.MajorGrid.LineColor = Color.LightGray;
-                        area.AxisY.MajorGrid.LineColor = Color.LightGray;
-                        area.AxisX.LineColor = Color.Black;
-                        area.AxisY.LineColor = Color.Black;
-                    }
-                    foreach (Legend legend in chart.Legends)
-                    {
-                        legend.BackColor = Color.White;
-                        legend.ForeColor = Color.Black;
-                    }
-                    foreach (Title title in chart.Titles)
-                        title.ForeColor = Color.Black;
-                }
-            });
-        }
-
-        // Обходит все открытые формы и применяет текущую тему (isDark = true)
-        private static void UpdateAllOpenForms(bool isDark)
+        private static void UpdateAllOpenForms()
         {
             foreach (Form f in Application.OpenForms)
-                ApplyToControl(f, isDark);
+                ApplyToControlTree(f, IsDarkMode);
         }
 
-        // Сохраняет исходные цвета всех открытых форм
-        private static void SaveOriginalColors()
+        private static void SaveAllOpenForms()
         {
             foreach (Form f in Application.OpenForms)
-                SaveControlColors(f);
+                SaveControlTree(f);
         }
 
-        // Рекурсивно сохраняет цвета контрола и его потомков, если они ещё не сохранены
-        private static void SaveControlColors(Control ctrl)
-        {
-            if (!OriginalColors.ContainsKey(ctrl))
-                OriginalColors[ctrl] = (ctrl.BackColor, ctrl.ForeColor);
-
-            foreach (Control child in ctrl.Controls)
-                SaveControlColors(child);
-        }
-
-        // Восстанавливает исходные цвета на всех открытых формах
-        private static void RestoreOriginalColors()
+        private static void RestoreAllOpenForms()
         {
             foreach (Form f in Application.OpenForms)
-                RestoreControlColors(f);
+                ApplyToControlTree(f, isDark: false);
         }
 
-        // Рекурсивно восстанавливает цвет контрола из словаря, если он там есть
-        private static void RestoreControlColors(Control ctrl)
+
+        //Рекурсивно сохраняет исходные цвета контрола и его потомков
+        private static void SaveControlTree(Control control)
         {
-            Type t = ctrl.GetType();
+            if (!OriginalColors.ContainsKey(control))
+                OriginalColors[control] = (control.BackColor, control.ForeColor);
 
-            // Если есть кастомный обработчик, вызываем его для светлой темы (false)
-            if (CustomHandlers.TryGetValue(t, out var handler))
-            {
-                handler(ctrl, false);
-            }
-            else if (OriginalColors.TryGetValue(ctrl, out var colors))
-            {
-                ctrl.BackColor = colors.Back;
-                ctrl.ForeColor = colors.Fore;
-            }
-
-            foreach (Control child in ctrl.Controls)
-                RestoreControlColors(child);
+            foreach (Control child in control.Controls)
+                SaveControlTree(child);
         }
 
-        // Рекурсивное применение темы к контролу и его потомкам
-        private static void ApplyToControl(Control ctrl, bool isDark)
+        //Рекурсивно применяет тему (тёмную или светлую) к контролу и всем потомкам
+        private static void ApplyToControlTree(Control control, bool isDark)
         {
-            Type t = ctrl.GetType();
+            ApplyToSingleControl(control, isDark);
 
-            // Если есть кастомный обработчик, вызываем только его (но всё равно идём вглубь)
-            if (CustomHandlers.TryGetValue(t, out var handler))
+            foreach (Control child in control.Controls)
+                ApplyToControlTree(child, isDark);
+        }
+
+        // Применить тему к одному контролу (без обхода потомков)
+        private static void ApplyToSingleControl(Control control, bool isDark)
+        {
+            Type type = control.GetType();
+
+            // 1. Кастомный обработчик имеет приоритет
+            if (CustomHandlers.TryGetValue(type, out var handler))
             {
-                handler(ctrl, isDark);
+                handler(control, isDark);
+                return;
             }
-            else 
+
+            // 2. Стандартное поведение
+            if (isDark)
             {
-                if (isDark)
+                (Color back, Color fore) = TryGetOriginal(control);
+                control.BackColor = Darken(back, _darkFactor);
+                control.ForeColor = Lighten(fore, _lightFactor);
+            }
+            else
+            {
+                // Светлая тема – восстанавливаем исходные цвета, если они есть
+                if (OriginalColors.TryGetValue(control, out var original))
                 {
-                    // Получаем исходный цвет (индивидуальный или общий запасной)
-                    Color origBack = OriginalColors.TryGetValue(ctrl, out var orig) ? orig.Back : DefaultLightBack;
-                    Color origFore = OriginalColors.TryGetValue(ctrl, out orig) ? orig.Fore : DefaultLightFore;
-
-                    ctrl.BackColor = Darken(origBack, _darkFactor);
-                    ctrl.ForeColor = Lighten(origFore, _lightFactor);
+                    control.BackColor = original.Back;
+                    control.ForeColor = original.Fore;
                 }
             }
-
-            // Рекурсивный обход дочерних контролов
-            foreach (Control child in ctrl.Controls)
-                ApplyToControl(child, isDark);
         }
 
-        private static Color Darken(Color c, double factor)
+        // Получить сохранённый исходный цвет или глобальный стандарт
+        private static (Color Back, Color Fore) TryGetOriginal(Control control)
+        {
+            return OriginalColors.TryGetValue(control, out var original)
+                ? original
+                : (DefaultBackColor, DefaultForeColor);
+        }
+
+        private static Color Darken(Color color, double factor)
         {
             factor = Math.Max(0, Math.Min(1, factor));
             return Color.FromArgb(
-                (int)(c.R * (1 - factor)),
-                (int)(c.G * (1 - factor)),
-                (int)(c.B * (1 - factor)));
+                (int)(color.R * (1 - factor)),
+                (int)(color.G * (1 - factor)),
+                (int)(color.B * (1 - factor)));
         }
 
-        private static Color Lighten(Color c, double factor)
+        private static Color Lighten(Color color, double factor)
         {
             factor = Math.Max(0, Math.Min(1, factor));
             return Color.FromArgb(
-                (int)(c.R + (255 - c.R) * factor),
-                (int)(c.G + (255 - c.G) * factor),
-                (int)(c.B + (255 - c.B) * factor));
+                (int)(color.R + (255 - color.R) * factor),
+                (int)(color.G + (255 - color.G) * factor),
+                (int)(color.B + (255 - color.B) * factor));
+        }
+
+        private static void ApplyChartTheme(Chart chart, bool isDark)
+        {
+            Color back = isDark ? Color.FromArgb(30, 30, 30) : Color.White;
+            Color fore = isDark ? Color.LightGray : Color.Black;
+
+            chart.BackColor = back;
+
+            foreach (ChartArea area in chart.ChartAreas)
+            {
+                area.BackColor = back;
+                area.AxisX.LabelStyle.ForeColor = fore;
+                area.AxisY.LabelStyle.ForeColor = fore;
+                area.AxisX.TitleForeColor = fore;
+                area.AxisY.TitleForeColor = fore;
+                area.AxisX.MajorGrid.LineColor = fore;
+                area.AxisY.MajorGrid.LineColor = fore;
+                area.AxisX.LineColor = isDark ? Color.Gray : Color.Black;
+                area.AxisY.LineColor = isDark ? Color.Gray : Color.Black;
+            }
+
+            foreach (Legend legend in chart.Legends)
+            {
+                legend.BackColor = back;
+                legend.ForeColor = fore;
+            }
+
+            foreach (Title title in chart.Titles)
+                title.ForeColor = fore;
         }
     }
 }

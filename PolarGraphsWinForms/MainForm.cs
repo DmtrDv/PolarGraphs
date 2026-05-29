@@ -129,7 +129,7 @@ namespace PolarGraphsWinForms
             try
             {
                 // Устанавливаем белый фон для экспорта
-                chart.BackColor = Color.White;
+                chart.BackColor = ThemeMode.IsDarkMode ? Color.FromArgb(30, 30, 30) : Color.White;
 
                 // Экспортируем график в указанный файл
                 chart.SaveImage(fileName, format);
