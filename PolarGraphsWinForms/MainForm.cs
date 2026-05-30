@@ -28,12 +28,14 @@ namespace PolarGraphsWinForms
         public MainForm()
         {
             InitializeComponent();
+            ThemeMode.RegisterChartHandler();
             ShowFormInWorkArea(new CreatingNewFunctionForm());
 
             for (int i = 0; i < list.Count; i++)
             {
                 FunctionList_toolStripComboBox.Items.Add(list[i].Name);
             }
+            ThemeMode.Apply(this);
         }
         private void ShowFormInWorkArea(CreatingNewFunctionForm form)
         {
@@ -127,7 +129,7 @@ namespace PolarGraphsWinForms
             try
             {
                 // Устанавливаем белый фон для экспорта
-                chart.BackColor = Color.White;
+                chart.BackColor = ThemeMode.IsDarkMode ? Color.FromArgb(30, 30, 30) : Color.White;
 
                 // Экспортируем график в указанный файл
                 chart.SaveImage(fileName, format);
@@ -165,6 +167,12 @@ namespace PolarGraphsWinForms
         {
             InformationNote informationNote = new InformationNote();
             informationNote.Show();
+        }
+
+        private void Settings_ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SettingsForm settingsForm = new SettingsForm();
+            settingsForm.ShowDialog();
         }
     }
 }

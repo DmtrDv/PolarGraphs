@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PolarGraphsLib;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -31,6 +32,7 @@ namespace PolarGraphsWinForms
                     SendMessage(this.Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
                 }
             };
+            ThemeMode.Apply(this);
         }
         private void LineSettingsForm_Load(object sender, EventArgs e)
         {
