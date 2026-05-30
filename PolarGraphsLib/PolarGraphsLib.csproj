@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MouseSelection.cs" />
     <Compile Include="PolarFunction.cs" />
     <Compile Include="Points.cs" />
     <Compile Include="ReadUserFunction.cs" />

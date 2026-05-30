@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
+using System.Runtime.CompilerServices;
 
 namespace PolarGraphsLib
 {
@@ -46,6 +47,27 @@ namespace PolarGraphsLib
             {
                 if (ctrl is Chart chart)
                     ApplyChartTheme(chart, isDark);
+            });
+        }
+
+        static ThemeMode()
+        {
+            // Регистрируем обработчик для MenuStrip
+            RegisterCustomHandler(typeof(MenuStrip), (ctrl, isDark) =>
+            {
+                if (ctrl is MenuStrip menu)
+                {
+                    if (isDark)
+                    {
+                        // Если тёмная тема — включаем наш рендер
+                        menu.Renderer = new MouseSelection();
+                    }
+                    else
+                    {
+                        // Если светлая тема — возвращаем стандартный рендер Windows
+                        menu.Renderer = null;
+                    }
+                }
             });
         }
 

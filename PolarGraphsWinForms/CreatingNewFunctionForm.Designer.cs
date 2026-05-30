@@ -107,7 +107,7 @@
             this.parameters_groupBox.Name = "parameters_groupBox";
             this.parameters_groupBox.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.parameters_groupBox.Size = new System.Drawing.Size(344, 185);
-            this.parameters_groupBox.TabIndex = 18;
+            this.parameters_groupBox.TabIndex = 0;
             this.parameters_groupBox.TabStop = false;
             this.parameters_groupBox.Text = "Параметры функции";
             // 
@@ -128,7 +128,7 @@
             65536});
             this.step_numericUpDown.Name = "step_numericUpDown";
             this.step_numericUpDown.Size = new System.Drawing.Size(120, 34);
-            this.step_numericUpDown.TabIndex = 27;
+            this.step_numericUpDown.TabIndex = 4;
             this.step_numericUpDown.Value = new decimal(new int[] {
             1,
             0,
@@ -152,7 +152,7 @@
             -2147483648});
             this.endСorner_numericUpDown.Name = "endСorner_numericUpDown";
             this.endСorner_numericUpDown.Size = new System.Drawing.Size(120, 34);
-            this.endСorner_numericUpDown.TabIndex = 26;
+            this.endСorner_numericUpDown.TabIndex = 3;
             this.endСorner_numericUpDown.Value = new decimal(new int[] {
             360,
             0,
@@ -176,7 +176,7 @@
             -2147483648});
             this.startСorner_numericUpDown.Name = "startСorner_numericUpDown";
             this.startСorner_numericUpDown.Size = new System.Drawing.Size(120, 34);
-            this.startСorner_numericUpDown.TabIndex = 25;
+            this.startСorner_numericUpDown.TabIndex = 2;
             // 
             // Step_label
             // 
@@ -185,7 +185,7 @@
             this.Step_label.Location = new System.Drawing.Point(13, 137);
             this.Step_label.Name = "Step_label";
             this.Step_label.Size = new System.Drawing.Size(58, 26);
-            this.Step_label.TabIndex = 24;
+            this.Step_label.TabIndex = 0;
             this.Step_label.Text = "Шаг:";
             // 
             // EndСorner_label
@@ -195,7 +195,7 @@
             this.EndСorner_label.Location = new System.Drawing.Point(13, 92);
             this.EndСorner_label.Name = "EndСorner_label";
             this.EndСorner_label.Size = new System.Drawing.Size(164, 26);
-            this.EndСorner_label.TabIndex = 23;
+            this.EndСorner_label.TabIndex = 0;
             this.EndСorner_label.Text = "Конечный угол:";
             // 
             // StartСorner_label
@@ -205,7 +205,7 @@
             this.StartСorner_label.Location = new System.Drawing.Point(13, 48);
             this.StartСorner_label.Name = "StartСorner_label";
             this.StartСorner_label.Size = new System.Drawing.Size(172, 26);
-            this.StartСorner_label.TabIndex = 22;
+            this.StartСorner_label.TabIndex = 0;
             this.StartСorner_label.Text = "Начальный угол:";
             // 
             // Input_label
@@ -217,7 +217,7 @@
             this.Input_label.Location = new System.Drawing.Point(2, 29);
             this.Input_label.Name = "Input_label";
             this.Input_label.Size = new System.Drawing.Size(213, 26);
-            this.Input_label.TabIndex = 20;
+            this.Input_label.TabIndex = 0;
             this.Input_label.Text = "Ввод функции r(fi) =";
             // 
             // Info_label
@@ -255,7 +255,7 @@
             this.build_button.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.build_button.Name = "build_button";
             this.build_button.Size = new System.Drawing.Size(176, 61);
-            this.build_button.TabIndex = 22;
+            this.build_button.TabIndex = 9;
             this.build_button.Text = "Построить";
             this.build_button.UseVisualStyleBackColor = false;
             this.build_button.Click += new System.EventHandler(this.build_button_Click);
@@ -269,7 +269,7 @@
             this.addons_button.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.addons_button.Name = "addons_button";
             this.addons_button.Size = new System.Drawing.Size(176, 61);
-            this.addons_button.TabIndex = 23;
+            this.addons_button.TabIndex = 10;
             this.addons_button.Text = "Настройки линии";
             this.addons_button.UseVisualStyleBackColor = false;
             this.addons_button.Click += new System.EventHandler(this.addons_button_Click);
@@ -308,7 +308,7 @@
             this.function_richTextBox.Location = new System.Drawing.Point(5, 58);
             this.function_richTextBox.Name = "function_richTextBox";
             this.function_richTextBox.Size = new System.Drawing.Size(498, 78);
-            this.function_richTextBox.TabIndex = 26;
+            this.function_richTextBox.TabIndex = 1;
             this.function_richTextBox.Text = "";
             // 
             // animation_groupBox
@@ -322,7 +322,7 @@
             this.animation_groupBox.Location = new System.Drawing.Point(5, 340);
             this.animation_groupBox.Name = "animation_groupBox";
             this.animation_groupBox.Size = new System.Drawing.Size(382, 156);
-            this.animation_groupBox.TabIndex = 25;
+            this.animation_groupBox.TabIndex = 0;
             this.animation_groupBox.TabStop = false;
             this.animation_groupBox.Text = "Параметры анимации";
             // 
@@ -333,7 +333,7 @@
             this.speedGroup_groupBox.Location = new System.Drawing.Point(228, 22);
             this.speedGroup_groupBox.Name = "speedGroup_groupBox";
             this.speedGroup_groupBox.Size = new System.Drawing.Size(145, 86);
-            this.speedGroup_groupBox.TabIndex = 30;
+            this.speedGroup_groupBox.TabIndex = 0;
             this.speedGroup_groupBox.TabStop = false;
             // 
             // speedAnimation_numericUpDown
@@ -351,7 +351,7 @@
             0});
             this.speedAnimation_numericUpDown.Name = "speedAnimation_numericUpDown";
             this.speedAnimation_numericUpDown.Size = new System.Drawing.Size(120, 34);
-            this.speedAnimation_numericUpDown.TabIndex = 25;
+            this.speedAnimation_numericUpDown.TabIndex = 7;
             this.speedAnimation_numericUpDown.Value = new decimal(new int[] {
             1,
             0,
@@ -368,7 +368,7 @@
             this.speed_trackBar.Minimum = 1;
             this.speed_trackBar.Name = "speed_trackBar";
             this.speed_trackBar.Size = new System.Drawing.Size(153, 34);
-            this.speed_trackBar.TabIndex = 29;
+            this.speed_trackBar.TabIndex = 6;
             this.speed_trackBar.Value = 1;
             this.speed_trackBar.Scroll += new System.EventHandler(this.speed_trackBar_Scroll);
             // 
@@ -382,7 +382,7 @@
             0});
             this.pointInTick_numericUpDown.Name = "pointInTick_numericUpDown";
             this.pointInTick_numericUpDown.Size = new System.Drawing.Size(120, 34);
-            this.pointInTick_numericUpDown.TabIndex = 28;
+            this.pointInTick_numericUpDown.TabIndex = 8;
             this.pointInTick_numericUpDown.Value = new decimal(new int[] {
             1,
             0,
@@ -395,7 +395,7 @@
             this.pointInTick_label.Location = new System.Drawing.Point(3, 115);
             this.pointInTick_label.Name = "pointInTick_label";
             this.pointInTick_label.Size = new System.Drawing.Size(138, 26);
-            this.pointInTick_label.TabIndex = 27;
+            this.pointInTick_label.TabIndex = 0;
             this.pointInTick_label.Text = "Точек за тик:";
             // 
             // speedAnimation_label
@@ -404,7 +404,7 @@
             this.speedAnimation_label.Location = new System.Drawing.Point(3, 78);
             this.speedAnimation_label.Name = "speedAnimation_label";
             this.speedAnimation_label.Size = new System.Drawing.Size(211, 26);
-            this.speedAnimation_label.TabIndex = 26;
+            this.speedAnimation_label.TabIndex = 0;
             this.speedAnimation_label.Text = "Скорость анимации:";
             // 
             // animation_checkBox
@@ -417,7 +417,7 @@
             this.animation_checkBox.Name = "animation_checkBox";
             this.animation_checkBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.animation_checkBox.Size = new System.Drawing.Size(134, 30);
-            this.animation_checkBox.TabIndex = 24;
+            this.animation_checkBox.TabIndex = 5;
             this.animation_checkBox.Text = "Анимация";
             this.animation_checkBox.UseVisualStyleBackColor = true;
             // 
