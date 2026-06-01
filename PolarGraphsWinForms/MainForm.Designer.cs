@@ -34,9 +34,10 @@
             this.work_panel = new System.Windows.Forms.Panel();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.exportIn_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ExportIn_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.InfoNote_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Settings_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.SaveFunction_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.main_toolStrip.SuspendLayout();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
@@ -102,17 +103,18 @@
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.exportIn_ToolStripMenuItem});
+            this.ExportIn_ToolStripMenuItem,
+            this.SaveFunction_toolStripMenuItem});
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(59, 26);
             this.toolStripMenuItem1.Text = "Файл";
             // 
-            // exportIn_ToolStripMenuItem
+            // ExportIn_ToolStripMenuItem
             // 
-            this.exportIn_ToolStripMenuItem.Name = "exportIn_ToolStripMenuItem";
-            this.exportIn_ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.exportIn_ToolStripMenuItem.Text = "Экспорт в";
-            this.exportIn_ToolStripMenuItem.Click += new System.EventHandler(this.exportIn_ToolStripMenuItem_Click);
+            this.ExportIn_ToolStripMenuItem.Name = "ExportIn_ToolStripMenuItem";
+            this.ExportIn_ToolStripMenuItem.Size = new System.Drawing.Size(233, 26);
+            this.ExportIn_ToolStripMenuItem.Text = "Экспорт в";
+            this.ExportIn_ToolStripMenuItem.Click += new System.EventHandler(this.ExportIn_ToolStripMenuItem_Click);
             // 
             // InfoNote_toolStripMenuItem
             // 
@@ -127,6 +129,13 @@
             this.Settings_ToolStripMenuItem.Size = new System.Drawing.Size(98, 26);
             this.Settings_ToolStripMenuItem.Text = "Настройки";
             this.Settings_ToolStripMenuItem.Click += new System.EventHandler(this.Settings_ToolStripMenuItem_Click);
+            // 
+            // SaveFunction_toolStripMenuItem
+            // 
+            this.SaveFunction_toolStripMenuItem.Name = "SaveFunction_toolStripMenuItem";
+            this.SaveFunction_toolStripMenuItem.Size = new System.Drawing.Size(233, 26);
+            this.SaveFunction_toolStripMenuItem.Text = "Сохранить функцию";
+            this.SaveFunction_toolStripMenuItem.Click += new System.EventHandler(this.SaveFunction_toolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -159,8 +168,9 @@
         private System.Windows.Forms.Panel work_panel;
         private System.Windows.Forms.MenuStrip menuStrip;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem exportIn_ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ExportIn_ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem InfoNote_toolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem Settings_ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem SaveFunction_toolStripMenuItem;
     }
 }

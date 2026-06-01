@@ -29,5 +29,27 @@ namespace PolarGraphsLib
             }
             return listFunctions;
         }
+
+        public static void WritePolarFunction(List<PolarFunction> listPolarFunctions)
+        {
+            string recordable = null;
+
+            for (int i = 0; i < listPolarFunctions.Count; i++)
+            {
+                PolarFunction polarFunction = listPolarFunctions[i];
+                
+                if (i == listPolarFunctions.Count - 1)
+                {
+                    recordable += polarFunction.Id + ";" + polarFunction.Name + ";" + polarFunction.Function + ";" +
+                                  polarFunction.Step + ";" + polarFunction.StartCorner + ";" + polarFunction.EndCorner;
+                }
+                else
+                {
+                    recordable += polarFunction.Id + ";" + polarFunction.Name + ";" + polarFunction.Function + ";" + 
+                                  polarFunction.Step + ";" + polarFunction.StartCorner + ";" + polarFunction.EndCorner + "\n";
+                }
+            }
+            File.WriteAllText(pathToListFunction_ ,recordable);
+        }
     }
 }
