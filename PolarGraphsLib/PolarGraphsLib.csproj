@@ -50,6 +50,7 @@
     <Compile Include="MouseSelection.cs" />
     <Compile Include="PolarFunction.cs" />
     <Compile Include="Points.cs" />
+    <Compile Include="ReadingAndWriting.cs" />
     <Compile Include="ReadUserFunction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ThemeMode.cs" />
