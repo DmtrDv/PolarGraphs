@@ -15,15 +15,15 @@ namespace PolarGraphsWinForms
     public partial class MainForm: Form
     {
         private CreatingNewFunctionForm currentFunctionForm;
-        private List<PolarFunction> list = new List<PolarFunction>() { 
+        /*private List<PolarFunction> list = new List<PolarFunction>() { 
             (new PolarFunction { Id = 0, Name = "Астроида", Function = "1/( Pow( Pow(abs(cos(fi)), 2/3) + Pow(abs(sin(fi)), 2/3) , 3/2) )", Step = 0.1, StartCorner = 0, EndCorner = 360 }),
             (new PolarFunction { Id = 1, Name = "Улитка Паскаля", Function = "cos(fi)+0.25", Step = 1, StartCorner = 0, EndCorner = 360 }),
             (new PolarFunction { Id = 2, Name = "Кардиоида", Function = "Pow(2*(1+cos(fi)), 0.25)", Step = 1, StartCorner = 0, EndCorner = 360 }),
             (new PolarFunction { Id = 3, Name = "Листочек", Function = "(1 + sin(9*fi))*(1 + sin(fi))*(1 + 0.03*sin(9*5*fi))*(1 + 0.04*sin(9*33*fi))", Step = 0.1, StartCorner = 0, EndCorner = 360}),
             //(new ListPolarFunction { Id = 4, Name = "Парабола", Function = "sin(fi)/Pow(cos(fi), 2)" }),
             (new PolarFunction {Id = 4, Name = "Сердце", Function = "2-2*sin(fi)+sin(fi)*sqrt(abs(cos(fi)))/(sin(fi)+1.4)", Step = 0.1, StartCorner = 0, EndCorner = 360}),
-            (new PolarFunction {Id = 5, Name = "Бабочка", Function = "Abs((1.5*Sin(fi)) + (0.8*Sin(2*fi)) + (0.6*Sin(3*fi)))*(1 + (0.3*Cos(5*fi)))", Step = 3, StartCorner = 0, EndCorner = 360})};
-
+            (new PolarFunction {Id = 5, Name = "Бабочка", Function = "Abs((1.5*Sin(fi)) + (0.8*Sin(2*fi)) + (0.6*Sin(3*fi)))*(1 + (0.3*Cos(5*fi)))", Step = 3, StartCorner = 0, EndCorner = 360})};*/
+        private List<PolarFunction> listFunctions_ = ReadingAndWriting.ReadPolarFunction();
         PolarFunction func;
         public MainForm()
         {
@@ -31,9 +31,9 @@ namespace PolarGraphsWinForms
             ThemeMode.RegisterChartHandler();
             ShowFormInWorkArea(new CreatingNewFunctionForm());
 
-            for (int i = 0; i < list.Count; i++)
+            for (int i = 0; i < listFunctions_.Count; i++)
             {
-                FunctionList_toolStripComboBox.Items.Add(list[i].Name);
+                FunctionList_toolStripComboBox.Items.Add(listFunctions_[i].Name);
             }
             ThemeMode.Apply(this);
         }
@@ -68,7 +68,7 @@ namespace PolarGraphsWinForms
 
         }
 
-        private void exportIn_ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ExportIn_ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // Проверяем, есть ли активная форма с графиком
             if (currentFunctionForm == null || currentFunctionForm.cartesianGraph_chart.Series[0].Points.Count == 0)
@@ -144,7 +144,7 @@ namespace PolarGraphsWinForms
         {
             string function = FunctionList_toolStripComboBox.Text;
             
-            foreach (PolarFunction polarFunction in list)
+            foreach (PolarFunction polarFunction in listFunctions_)
             {
                 if (function == polarFunction.Name)
                 {
@@ -173,6 +173,28 @@ namespace PolarGraphsWinForms
         {
             SettingsForm settingsForm = new SettingsForm();
             settingsForm.ShowDialog();
+        }
+
+        private void SaveFunction_toolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CreatingNewFunctionForm newFunction = Application.OpenForms["CreatingNewFunctionForm"] as CreatingNewFunctionForm;
+            PolarFunction function = newFunction.GetCurrentPolarFunction(listFunctions_.Count);
+            if (string.IsNullOrEmpty(function.Function))
+            {
+                MessageBox.Show("Функция не может быть пустой", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            SaveUserFunctionForm saveUserFunction = new SaveUserFunctionForm(function, listFunctions_);
+            if (saveUserFunction.ShowDialog() == DialogResult.Yes)
+            {
+                listFunctions_ = ReadingAndWriting.ReadPolarFunction();
+                FunctionList_toolStripComboBox.Items.Clear();
+                for (int i = 0; i < listFunctions_.Count; i++)
+                {
+                    FunctionList_toolStripComboBox.Items.Add(listFunctions_[i].Name);
+                }
+            }
         }
     }
 }
