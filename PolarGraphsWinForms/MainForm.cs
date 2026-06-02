@@ -177,7 +177,24 @@ namespace PolarGraphsWinForms
 
         private void SaveFunction_toolStripMenuItem_Click(object sender, EventArgs e)
         {
+            CreatingNewFunctionForm newFunction = Application.OpenForms["CreatingNewFunctionForm"] as CreatingNewFunctionForm;
+            PolarFunction function = newFunction.GetCurrentPolarFunction(listFunctions_.Count);
+            if (string.IsNullOrEmpty(function.Function))
+            {
+                MessageBox.Show("Функция не может быть пустой", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
 
+            SaveUserFunctionForm saveUserFunction = new SaveUserFunctionForm(function, listFunctions_);
+            if (saveUserFunction.ShowDialog() == DialogResult.Yes)
+            {
+                listFunctions_ = ReadingAndWriting.ReadPolarFunction();
+                FunctionList_toolStripComboBox.Items.Clear();
+                for (int i = 0; i < listFunctions_.Count; i++)
+                {
+                    FunctionList_toolStripComboBox.Items.Add(listFunctions_[i].Name);
+                }
+            }
         }
     }
 }

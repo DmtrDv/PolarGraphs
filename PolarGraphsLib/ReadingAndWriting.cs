@@ -49,7 +49,7 @@ namespace PolarGraphsLib
                                   polarFunction.Step + ";" + polarFunction.StartCorner + ";" + polarFunction.EndCorner + "\n";
                 }
             }
-            File.WriteAllText(pathToListFunction_ ,recordable);
+            File.WriteAllText(pathToListFunction_, recordable);
         }
     }
 }
