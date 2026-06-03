@@ -174,6 +174,14 @@ namespace PolarGraphsWinForms
 
         private void InfoNote_toolStripMenuItem_Click(object sender, EventArgs e)
         {
+            foreach (Form form in Application.OpenForms)
+            {
+                if (form is InformationNote)
+                {
+                    form.Activate();
+                    return;
+                }
+            }
             InformationNote informationNote = new InformationNote();
             informationNote.Show();
         }
