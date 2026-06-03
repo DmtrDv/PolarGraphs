@@ -46,6 +46,15 @@ namespace PolarGraphsWinForms
                 MessageBox.Show("Введите название для функции", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
+            foreach (PolarFunction polarFunction in listPolarFunction_)
+            {
+                if (polarFunction.Name.ToLower().Contains(polarFunction_.Name.ToLower()))
+                {
+                    MessageBox.Show("Такая функция уже существует", "Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+            }
+
             listPolarFunction_.Add(polarFunction_);
             ReadingAndWriting.WritePolarFunction(listPolarFunction_);
 

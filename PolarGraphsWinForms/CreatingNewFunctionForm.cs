@@ -241,9 +241,9 @@ namespace PolarGraphsWinForms
         {
             speed_trackBar.Value = (int)speedAnimation_numericUpDown.Value;
         }
-        public PolarFunction GetCurrentPolarFunction(int id)
+        public PolarFunction GetCurrentPolarFunction(int id, string name)
         {
-            PolarFunction function = new PolarFunction() { Id = id, Name = "", Function = function_richTextBox.Text, Step = (double)step_numericUpDown.Value, 
+            PolarFunction function = new PolarFunction() { Id = id, Name = name, Function = function_richTextBox.Text, Step = (double)step_numericUpDown.Value, 
                                                            StartCorner = (double)startСorner_numericUpDown.Value, EndCorner = (double)endСorner_numericUpDown.Value};
             return function;
         }

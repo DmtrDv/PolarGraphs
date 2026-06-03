@@ -39,13 +39,13 @@ namespace PolarGraphsWinForms
         }
         private void ShowFormInWorkArea(CreatingNewFunctionForm form)
         {
-            currentFunctionForm = form;
             // Закрыть текущую форму
-            /*if (currentForm != null)
+            if (currentFunctionForm != null)
             {
-                currentForm.Close();
-                currentForm.Dispose(); //освобождает ресурсы
-            }*/
+                currentFunctionForm.Close();
+                currentFunctionForm.Dispose(); //освобождает ресурсы
+            }
+            currentFunctionForm = form;
 
             // Настраиваем новую форму
             form.TopLevel = false;
@@ -178,7 +178,7 @@ namespace PolarGraphsWinForms
         private void SaveFunction_toolStripMenuItem_Click(object sender, EventArgs e)
         {
             CreatingNewFunctionForm newFunction = Application.OpenForms["CreatingNewFunctionForm"] as CreatingNewFunctionForm;
-            PolarFunction function = newFunction.GetCurrentPolarFunction(listFunctions_.Count);
+            PolarFunction function = newFunction.GetCurrentPolarFunction(listFunctions_.Count, FunctionList_toolStripComboBox.Text);
             if (string.IsNullOrEmpty(function.Function))
             {
                 MessageBox.Show("Функция не может быть пустой", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);
