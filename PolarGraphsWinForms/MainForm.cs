@@ -165,11 +165,16 @@ namespace PolarGraphsWinForms
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            DialogResult result = MessageBox.Show("Вы точно хотите выйти?", "Подтверждение", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.No)
+            DialogResult result = MessageBox.Show("Сохранить текущее состояние?", "Подтверждение", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+            if (result == DialogResult.Cancel)
             {
                 e.Cancel = true;
-            } 
+            }
+            else if (result == DialogResult.Yes)
+            {
+                SaveCurrentSession();
+            }
+            else { }
         }
 
         private void InfoNote_toolStripMenuItem_Click(object sender, EventArgs e)
@@ -215,6 +220,10 @@ namespace PolarGraphsWinForms
         }
 
         private void SaveSession_toolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveCurrentSession();
+        }
+        private void SaveCurrentSession()
         {
             CreatingNewFunctionForm functionForm = Application.OpenForms["CreatingNewFunctionForm"] as CreatingNewFunctionForm;
             bool isPointsOnChart = functionForm.IsPointsOnChart();
