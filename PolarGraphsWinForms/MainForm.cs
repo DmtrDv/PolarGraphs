@@ -32,7 +32,7 @@ namespace PolarGraphsWinForms
             PolarFunction lastPolarFunction;
             bool pointsOnChart;
             (lastPolarFunction, pointsOnChart) = SavingAndPullingUpSession.PullingUpSession();
-
+            FunctionList_toolStripComboBox.Text = lastPolarFunction.Name;
             ShowFormInWorkArea(new CreatingNewFunctionForm(lastPolarFunction));
             if (pointsOnChart)
             {
