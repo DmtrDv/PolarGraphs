@@ -53,6 +53,7 @@
     <Compile Include="ReadingAndWriting.cs" />
     <Compile Include="ReadUserFunction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SavingAndPullingUpSession.cs" />
     <Compile Include="ThemeMode.cs" />
   </ItemGroup>
   <ItemGroup>

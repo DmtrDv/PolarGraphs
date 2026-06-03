@@ -14,7 +14,7 @@ namespace PolarGraphsWinForms
 {
     public partial class MainForm: Form
     {
-        private CreatingNewFunctionForm currentFunctionForm;
+        private CreatingNewFunctionForm currentFunctionForm_;
         /*private List<PolarFunction> list = new List<PolarFunction>() { 
             (new PolarFunction { Id = 0, Name = "Астроида", Function = "1/( Pow( Pow(abs(cos(fi)), 2/3) + Pow(abs(sin(fi)), 2/3) , 3/2) )", Step = 0.1, StartCorner = 0, EndCorner = 360 }),
             (new PolarFunction { Id = 1, Name = "Улитка Паскаля", Function = "cos(fi)+0.25", Step = 1, StartCorner = 0, EndCorner = 360 }),
@@ -28,24 +28,33 @@ namespace PolarGraphsWinForms
         public MainForm()
         {
             InitializeComponent();
-            ThemeMode.RegisterChartHandler();
-            ShowFormInWorkArea(new CreatingNewFunctionForm());
 
+            PolarFunction lastPolarFunction;
+            bool pointsOnChart;
+            (lastPolarFunction, pointsOnChart) = SavingAndPullingUpSession.PullingUpSession();
+
+            ShowFormInWorkArea(new CreatingNewFunctionForm(lastPolarFunction));
+            if (pointsOnChart)
+            {
+                currentFunctionForm_.BuildGraph();
+            }
             for (int i = 0; i < listFunctions_.Count; i++)
             {
                 FunctionList_toolStripComboBox.Items.Add(listFunctions_[i].Name);
             }
+
+            ThemeMode.RegisterChartHandler();
             ThemeMode.Apply(this);
         }
         private void ShowFormInWorkArea(CreatingNewFunctionForm form)
         {
             // Закрыть текущую форму
-            if (currentFunctionForm != null)
+            if (currentFunctionForm_ != null)
             {
-                currentFunctionForm.Close();
-                currentFunctionForm.Dispose(); //освобождает ресурсы
+                currentFunctionForm_.Close();
+                currentFunctionForm_.Dispose(); //освобождает ресурсы
             }
-            currentFunctionForm = form;
+            currentFunctionForm_ = form;
 
             // Настраиваем новую форму
             form.TopLevel = false;
@@ -71,7 +80,7 @@ namespace PolarGraphsWinForms
         private void ExportIn_ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // Проверяем, есть ли активная форма с графиком
-            if (currentFunctionForm == null || currentFunctionForm.cartesianGraph_chart.Series[0].Points.Count == 0)
+            if (currentFunctionForm_ == null || currentFunctionForm_.cartesianGraph_chart.Series[0].Points.Count == 0)
             {
                 MessageBox.Show("Нет активного графика для экспорта.", "Информация",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -108,7 +117,7 @@ namespace PolarGraphsWinForms
                         }
 
                         // Экспортируем график
-                        ExportChartToImage(currentFunctionForm.cartesianGraph_chart, saveFileDialog.FileName, format);
+                        ExportChartToImage(currentFunctionForm_.cartesianGraph_chart, saveFileDialog.FileName, format);
 
                         MessageBox.Show($"График успешно экспортирован в {saveFileDialog.FileName}",
                             "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -156,15 +165,28 @@ namespace PolarGraphsWinForms
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            DialogResult result = MessageBox.Show("Вы точно хотите выйти?", "Подтверждение", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.No)
+            DialogResult result = MessageBox.Show("Сохранить текущее состояние?", "Подтверждение", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+            if (result == DialogResult.Cancel)
             {
                 e.Cancel = true;
-            } 
+            }
+            else if (result == DialogResult.Yes)
+            {
+                SaveCurrentSession();
+            }
+            else { }
         }
 
         private void InfoNote_toolStripMenuItem_Click(object sender, EventArgs e)
         {
+            foreach (Form form in Application.OpenForms)
+            {
+                if (form is InformationNote)
+                {
+                    form.Activate();
+                    return;
+                }
+            }
             InformationNote informationNote = new InformationNote();
             informationNote.Show();
         }
@@ -195,6 +217,19 @@ namespace PolarGraphsWinForms
                     FunctionList_toolStripComboBox.Items.Add(listFunctions_[i].Name);
                 }
             }
+        }
+
+        private void SaveSession_toolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveCurrentSession();
+        }
+        private void SaveCurrentSession()
+        {
+            CreatingNewFunctionForm functionForm = Application.OpenForms["CreatingNewFunctionForm"] as CreatingNewFunctionForm;
+            bool isPointsOnChart = functionForm.IsPointsOnChart();
+            PolarFunction function = functionForm.GetCurrentPolarFunction(-1, FunctionList_toolStripComboBox.Text);
+
+            SavingAndPullingUpSession.SaveSession(function, isPointsOnChart);
         }
     }
 }
