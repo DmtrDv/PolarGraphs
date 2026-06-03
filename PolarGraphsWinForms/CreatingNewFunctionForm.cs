@@ -48,6 +48,10 @@ namespace PolarGraphsWinForms
         ReadUserFunction readFunction = new ReadUserFunction();
         private void build_button_Click(object sender, EventArgs e)
         {
+            BuildGraph();
+        }
+        public void BuildGraph()
+        {
             try
             {
                 animationTimer_.Stop();
@@ -94,7 +98,7 @@ namespace PolarGraphsWinForms
                 polarArea.AxisY.Crossing = 0;
                 polarArea.AxisX.Interval = 0.5;
                 polarArea.AxisY.Interval = 0.5;*/
-                
+
                 /* foreach (Points point in listPolarPoints)
                  {
                      polarGraph_chart.Series[0].Points.AddXY(point.coordinateX, point.coordinateY);
@@ -122,11 +126,11 @@ namespace PolarGraphsWinForms
                 }*/
                 //MessageBox.Show($"{listCartesianPoints.Count}");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show($"Ошибка функции или её значений:\n{ex.Message}",
                             "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }            
+            }
         }
         private void AnimationBuild(object sender, EventArgs eventArgs)
         {
