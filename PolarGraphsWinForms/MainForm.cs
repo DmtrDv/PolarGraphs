@@ -196,5 +196,14 @@ namespace PolarGraphsWinForms
                 }
             }
         }
+
+        private void SaveSession_toolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CreatingNewFunctionForm functionForm = Application.OpenForms["CreatingNewFunctionForm"] as CreatingNewFunctionForm;
+            bool isPointsOnChart = functionForm.IsPointsOnChart();
+            PolarFunction function = functionForm.GetCurrentPolarFunction(-1, FunctionList_toolStripComboBox.Text);
+
+            SavingAndPullingUpSession.SaveSession(function, isPointsOnChart);
+        }
     }
 }

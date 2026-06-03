@@ -247,5 +247,18 @@ namespace PolarGraphsWinForms
                                                            StartCorner = (double)startСorner_numericUpDown.Value, EndCorner = (double)endСorner_numericUpDown.Value};
             return function;
         }
+        public bool IsPointsOnChart()
+        {
+            bool isPointsOnChart;
+            if (cartesianGraph_chart.Series[0].Points.Count == 0)
+            {
+                isPointsOnChart = false;
+            }
+            else
+            {
+                isPointsOnChart = true;
+            }
+            return isPointsOnChart;
+        }
     }
 }
