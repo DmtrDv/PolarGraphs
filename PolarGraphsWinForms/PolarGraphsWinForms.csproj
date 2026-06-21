@@ -126,6 +126,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="SaveUserFunctionForm.resx">
       <DependentUpon>SaveUserFunctionForm.cs</DependentUpon>
@@ -155,6 +156,12 @@
       <Project>{673dbc28-feed-44e0-b0f7-9782a205afc9}</Project>
       <Name>PolarGraphsLib</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\Functions\Functions.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\Session\Session.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -36,9 +36,9 @@
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.ExportIn_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SaveFunction_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.SaveSession_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.InfoNote_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Settings_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.SaveSession_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.main_toolStrip.SuspendLayout();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
@@ -114,16 +114,23 @@
             // ExportIn_ToolStripMenuItem
             // 
             this.ExportIn_ToolStripMenuItem.Name = "ExportIn_ToolStripMenuItem";
-            this.ExportIn_ToolStripMenuItem.Size = new System.Drawing.Size(233, 26);
-            this.ExportIn_ToolStripMenuItem.Text = "Экспорт в";
+            this.ExportIn_ToolStripMenuItem.Size = new System.Drawing.Size(260, 26);
+            this.ExportIn_ToolStripMenuItem.Text = "Экспорт изображения в";
             this.ExportIn_ToolStripMenuItem.Click += new System.EventHandler(this.ExportIn_ToolStripMenuItem_Click);
             // 
             // SaveFunction_toolStripMenuItem
             // 
             this.SaveFunction_toolStripMenuItem.Name = "SaveFunction_toolStripMenuItem";
-            this.SaveFunction_toolStripMenuItem.Size = new System.Drawing.Size(233, 26);
+            this.SaveFunction_toolStripMenuItem.Size = new System.Drawing.Size(260, 26);
             this.SaveFunction_toolStripMenuItem.Text = "Сохранить функцию";
             this.SaveFunction_toolStripMenuItem.Click += new System.EventHandler(this.SaveFunction_toolStripMenuItem_Click);
+            // 
+            // SaveSession_toolStripMenuItem
+            // 
+            this.SaveSession_toolStripMenuItem.Name = "SaveSession_toolStripMenuItem";
+            this.SaveSession_toolStripMenuItem.Size = new System.Drawing.Size(260, 26);
+            this.SaveSession_toolStripMenuItem.Text = "Сохранить сессию";
+            this.SaveSession_toolStripMenuItem.Click += new System.EventHandler(this.SaveSession_toolStripMenuItem_Click);
             // 
             // InfoNote_toolStripMenuItem
             // 
@@ -138,13 +145,6 @@
             this.Settings_ToolStripMenuItem.Size = new System.Drawing.Size(98, 26);
             this.Settings_ToolStripMenuItem.Text = "Настройки";
             this.Settings_ToolStripMenuItem.Click += new System.EventHandler(this.Settings_ToolStripMenuItem_Click);
-            // 
-            // SaveSession_toolStripMenuItem
-            // 
-            this.SaveSession_toolStripMenuItem.Name = "SaveSession_toolStripMenuItem";
-            this.SaveSession_toolStripMenuItem.Size = new System.Drawing.Size(233, 26);
-            this.SaveSession_toolStripMenuItem.Text = "Сохранить сессию";
-            this.SaveSession_toolStripMenuItem.Click += new System.EventHandler(this.SaveSession_toolStripMenuItem_Click);
             // 
             // MainForm
             // 

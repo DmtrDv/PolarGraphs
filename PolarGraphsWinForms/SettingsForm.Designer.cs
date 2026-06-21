@@ -66,6 +66,7 @@
             this.ClientSize = new System.Drawing.Size(563, 234);
             this.Controls.Add(this.DarkMode_checkBox);
             this.Controls.Add(this.Close_button);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "SettingsForm";
             this.Text = "SettingsForm";
             this.ResumeLayout(false);

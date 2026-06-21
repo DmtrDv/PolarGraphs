@@ -55,7 +55,6 @@ namespace PolarGraphsWinForms
             try
             {
                 animationTimer_.Stop();
-                // polarGraph_chart.Series[0].Points.Clear();
                 cartesianGraph_chart.Series[0].Points.Clear();
 
                 string function = function_richTextBox.Text;
@@ -89,20 +88,7 @@ namespace PolarGraphsWinForms
                 cartesianArea.AxisY.Maximum = axisYMax;
                 cartesianArea.AxisX.Minimum = axisXMin;
                 cartesianArea.AxisY.Minimum = axisYMin;
-                /*ChartArea polarArea = polarGraph_chart.ChartAreas[0];
-                polarArea.AxisX.Minimum = -1.5;
-                polarArea.AxisX.Maximum = 1.5;
-                polarArea.AxisY.Minimum = -1.5;
-                polarArea.AxisY.Maximum = 1.5;
-                polarArea.AxisX.Crossing = 0;
-                polarArea.AxisY.Crossing = 0;
-                polarArea.AxisX.Interval = 0.5;
-                polarArea.AxisY.Interval = 0.5;*/
 
-                /* foreach (Points point in listPolarPoints)
-                 {
-                     polarGraph_chart.Series[0].Points.AddXY(point.coordinateX, point.coordinateY);
-                 }*/
                 if (animation_checkBox.Checked)
                 {
                     animationTimer_.Interval = (int)(111 - (int)speedAnimation_numericUpDown.Value * 11);
@@ -119,12 +105,6 @@ namespace PolarGraphsWinForms
                         cartesianGraph_chart.Series[0].Points.AddXY(point.coordinateX, point.coordinateY);
                     }
                 }
-                /*if (cartesianGraph_chart.Series[0].Points.Count == 0)
-                {
-                    MessageBox.Show($"Ошибка: функция не содержит точек",
-                            "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }*/
-                //MessageBox.Show($"{listCartesianPoints.Count}");
             }
             catch (Exception ex)
             {
@@ -134,7 +114,8 @@ namespace PolarGraphsWinForms
         }
         private void AnimationBuild(object sender, EventArgs eventArgs)
         {
-            if (currentListPoints_ == null || indexCurrentListPoints_ == currentListPoints_.Count)
+            if (cartesianGraph_chart.IsDisposed || currentListPoints_ == null || indexCurrentListPoints_ == currentListPoints_.Count ||
+                cartesianGraph_chart == null || cartesianGraph_chart.Series.Count == 0)
             {
                 animationTimer_.Stop();
                 return;
